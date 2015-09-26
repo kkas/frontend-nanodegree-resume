@@ -9,3 +9,9 @@ console.log(awesomeThoughts);
 var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
 
 $("#main").append(funThoughts);
+
+var formattedName = HTMLheaderName.replace("%data%", "Kenta Kikui");
+var formattedRole = HTMLheaderRole.replace("%data%", "Front-end Web Developer");
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
