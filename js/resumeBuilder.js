@@ -16,6 +16,31 @@ var formattedRole = HTMLheaderRole.replace("%data%", "Front-end Web Developer");
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
+var work = {
+  "jobs": [
+    {
+      "employer": "",
+      "title": "",
+      "location": "",
+      "dates": "",
+      "description": ""
+    }
+  ]
+};
+
+var projects = {
+  "projects": [
+    {
+      "title": "",
+      "dates": "",
+      "description": "",
+      "images": [
+        ""
+      ]
+    }
+  ]
+};
+
 var bio = {
   "name": "Kenta Kikui",
   "role": "Front-end Web Developer",
