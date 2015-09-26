@@ -68,25 +68,46 @@ var bio = {
 var education = {
   "schools": [
     {
-      "name": "",
+      "name": "California State University, Bakersfield",
       "location": "Bakersfield, CA, US",
-      "degree": "",
+      "degree": "BS",
       "majors": [
         "Comp Sci"
       ],
       "dates": 2007,
-      "url": ""
-      // "minor": [
-      //   ""
-      // ],
+      "url": "http://www.csub.edu/"
     }
   ],
   "onlineCourses": [
     {
-      "title": "JavaScript",
+      "title": "How to Use Git and GitHub",
       "school": "Udacity",
       "dates": 2015,
-      "url": "http://www.udacity.com/course/xxxx"
+      "url": "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
+    },
+    {
+      "title": "Intro to HTML and CSS",
+      "school": "Udacity",
+      "dates": 2015,
+      "url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
+    },
+    {
+      "title": "JavaScript Basics",
+      "school": "Udacity",
+      "dates": 2015,
+      "url": "https://www.udacity.com/course/javascript-basics--ud804"
+    },
+    {
+      "title": "Responsive Images",
+      "school": "Udacity",
+      "dates": 2015,
+      "url": "https://www.udacity.com/course/responsive-images--ud882"
+    },
+    {
+      "title": "Responsive Web Design Fundamentals",
+      "school": "Udacity",
+      "dates": 2015,
+      "url": "https://www.udacity.com/course/responsive-web-design-fundamentals--ud893"
     }
   ]
 };
