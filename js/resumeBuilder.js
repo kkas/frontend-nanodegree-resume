@@ -61,14 +61,17 @@ var bio = {
 var education = {
   "schools": [
     {
-      "city": "Bakersfield, CA, US",
-      "major": [
+      "name": "",
+      "location": "Bakersfield, CA, US",
+      "degree": "",
+      "majors": [
         "Comp Sci"
       ],
-      "minor": [
-        ""
-      ],
-      "dates": 2007
+      "dates": 2007,
+      "url": ""
+      // "minor": [
+      //   ""
+      // ],
     }
   ],
   "onlineCourses": [
