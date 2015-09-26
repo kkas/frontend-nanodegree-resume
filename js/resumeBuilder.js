@@ -46,13 +46,11 @@ var bio = {
   "role": "Front-end Web Developer",
   "welcomeMessage": "Welcome Message",
   "contacts": {
-    //"mobile": "090-xxxx-xxxx",
     "email": "kentakikui@gmail.com",
     "github": "https://github.com/kkas",
     "twitter": "@teriyakik",
     "location": "Tokyo, Japan"
   },
-  //"pictureURL": "images/fry.jpg",
   "skills": [
     "Japanese", "English", "Programming",
     "HTML", "CSS", "JS", "Bootstrap",
