@@ -5,3 +5,7 @@ $("#main").append(["Kenta Kikui"]);
 
 var awesomeThoughts = "I am Kenta Kikui and I am AWESOME!";
 console.log(awesomeThoughts);
+
+var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
+
+$("#main").append(funThoughts);
