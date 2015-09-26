@@ -44,9 +44,15 @@ var projects = {
 var bio = {
   "name": "Kenta Kikui",
   "role": "Front-end Web Developer",
-  "contactInfo": "my contact info",
-  "pictureURL": "images/fry.jpg",
   "welcomeMessage": "Welcome Message",
+  "contacts": {
+    //"mobile": "090-xxxx-xxxx",
+    "email": "",
+    "github": "",
+    "twitter": "",
+    "location": ""
+  },
+  //"pictureURL": "images/fry.jpg",
   "skills": [
     "Programming", "JS"
   ]
