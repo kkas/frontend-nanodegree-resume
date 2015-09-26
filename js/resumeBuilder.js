@@ -47,14 +47,21 @@ var bio = {
   "welcomeMessage": "Welcome Message",
   "contacts": {
     //"mobile": "090-xxxx-xxxx",
-    "email": "",
-    "github": "",
-    "twitter": "",
-    "location": ""
+    "email": "kentakikui@gmail.com",
+    "github": "https://github.com/kkas",
+    "twitter": "@teriyakik",
+    "location": "Tokyo, Japan"
   },
   //"pictureURL": "images/fry.jpg",
   "skills": [
-    "Programming", "JS"
+    "Japanese", "English", "Programming",
+    "HTML", "CSS", "JS", "Bootstrap",
+    "Ruby", "Ruby on Rails",
+    "Java",
+    "Python",
+    "PostgreSQL",
+    "git",
+    "GitHub"
   ]
 };
 
