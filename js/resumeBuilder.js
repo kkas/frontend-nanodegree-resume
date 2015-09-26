@@ -15,3 +15,37 @@ var formattedRole = HTMLheaderRole.replace("%data%", "Front-end Web Developer");
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
+
+var bio = {
+  "name": "Kenta Kikui",
+  "role": "Front-end Web Developer",
+  "contactInfo": "my contact info",
+  "pictureURL": "images/fry.jpg",
+  "welcomeMessage": "Welcome Message",
+  "skills": [
+    "Programming", "JS"
+  ]
+};
+
+var education = {
+  "schools": [
+    {
+      "city": "Bakersfield, CA, US",
+      "major": [
+        "Comp Sci"
+      ],
+      "minor": [
+        ""
+      ],
+      "dates": 2007
+    }
+  ],
+  "onlineCourses": [
+    {
+      "title": "JavaScript",
+      "school": "Udacity",
+      "dates": 2015,
+      "url": "http://www.udacity.com/course/xxxx"
+    }
+  ]
+};
