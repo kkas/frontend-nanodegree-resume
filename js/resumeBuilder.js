@@ -43,15 +43,15 @@ var projects = {
 var bio = {
   "name": "Kenta Kikui",
   "role": "Front-end Web Developer",
-  "welcomeMessage": "I eager to learn new things, especially web developing.<br>" +
-    "I am self learner with a lot of passion.<br>" +
-    "I am enhancing my skills, that are necessary for Front-end web developer, here at Udacity.<br>",
   "contacts": {
     "email": "kentakikui@gmail.com",
     "github": "https://github.com/kkas",
     "twitter": "@teriyakik",
     "location": "Tokyo, Japan"
   },
+  "welcomeMessage": "I eager to learn new things, especially web developing.<br>" +
+    "I am self learner with a lot of passion.<br>" +
+    "I am enhancing my skills, that are necessary for Front-end web developer, here at Udacity.<br>",
   "skills": [
     "Japanese", "English", "Programming",
     "HTML", "CSS", "JS", "Bootstrap",
@@ -62,7 +62,7 @@ var bio = {
     "git",
     "GitHub"
   ],
-  "image": "images/fry.jpg"
+  "biopic": "images/fry.jpg"
 };
 
 var education = {
@@ -129,7 +129,7 @@ var inName = function(names) {
 bio.display = function() {
   $("#header").prepend(HTMLheaderRole.replace("%data%", this.role));
   $("#header").prepend(HTMLheaderName.replace("%data%", this.name));
-  $("#header").append(HTMLbioPic.replace("%data%", this.image));
+  $("#header").append(HTMLbioPic.replace("%data%", this.biopic));
 
   $("#topContacts").append(HTMLemail.replace("%data%", this.contacts.email));
   $("#topContacts").append(HTMLtwitter.replace("%data%", this.contacts.twitter));
