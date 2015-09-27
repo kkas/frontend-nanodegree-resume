@@ -1,3 +1,28 @@
+var bio = {
+  "name": "Kenta Kikui",
+  "role": "Front-end Web Developer",
+  "contacts": {
+    "email": "kentakikui@gmail.com",
+    "github": "https://github.com/kkas",
+    "twitter": "@teriyakik",
+    "location": "Tokyo, Japan"
+  },
+  "welcomeMessage": "I eager to learn new things, especially web developing.<br>" +
+    "I am self learner with a lot of passion.<br>" +
+    "I am enhancing my skills, that are necessary for Front-end web developer, here at Udacity.<br>",
+  "skills": [
+    "Japanese", "English", "Programming",
+    "HTML", "CSS", "JS", "Bootstrap",
+    "Ruby", "Ruby on Rails",
+    "Java",
+    "Python",
+    "PostgreSQL",
+    "git",
+    "GitHub"
+  ],
+  "biopic": "images/fry.jpg"
+};
+
 var work = {
   "jobs": [
     {
@@ -38,31 +63,6 @@ var projects = {
       ]
     }
   ]
-};
-
-var bio = {
-  "name": "Kenta Kikui",
-  "role": "Front-end Web Developer",
-  "contacts": {
-    "email": "kentakikui@gmail.com",
-    "github": "https://github.com/kkas",
-    "twitter": "@teriyakik",
-    "location": "Tokyo, Japan"
-  },
-  "welcomeMessage": "I eager to learn new things, especially web developing.<br>" +
-    "I am self learner with a lot of passion.<br>" +
-    "I am enhancing my skills, that are necessary for Front-end web developer, here at Udacity.<br>",
-  "skills": [
-    "Japanese", "English", "Programming",
-    "HTML", "CSS", "JS", "Bootstrap",
-    "Ruby", "Ruby on Rails",
-    "Java",
-    "Python",
-    "PostgreSQL",
-    "git",
-    "GitHub"
-  ],
-  "biopic": "images/fry.jpg"
 };
 
 var education = {
