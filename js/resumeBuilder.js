@@ -138,9 +138,9 @@ var inName = function(names) {
 };
 
 projects.display = function() {
-  $("#projects").append(HTMLprojectStart);
-
   for (var project in this.projects) {
+    $("#projects").append(HTMLprojectStart);
+
     $(".project-entry:last").append(HTMLprojectTitle.replace(
       "%data%", this.projects[project].title));
     $(".project-entry:last").append(HTMLprojectDates.replace(
