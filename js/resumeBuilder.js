@@ -112,8 +112,6 @@ var projects = {
   ]
 };
 
-$("#main").append(internationalizeButton);
-
 var inName = function() {
   var newName = bio.name;
 
@@ -208,3 +206,4 @@ bio.display();
 work.display();
 
 $("#mapDiv").append(googleMap);
+$("#main").append(internationalizeButton);
