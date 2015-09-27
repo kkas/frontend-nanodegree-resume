@@ -107,6 +107,7 @@ Start here! initializeMap() is called when page is loaded.
 function initializeMap() {
 
   var locations;
+  var currentInfoWindow;
 
   var mapOptions = {
     disableDefaultUI: true
@@ -173,9 +174,18 @@ function initializeMap() {
       content: name
     });
 
-    // hmmmm, I wonder what this is about...
+    // Add clicking event to the event listener. To make only one infoWindow can be
+    // open at a time, the newly created infoWindow is stored in currentInfoWindow,
+    // so that every time clicking event get fired, I can close the infoWindow before I
+    // open the new one.
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      if (currentInfoWindow !== undefined) {
+        currentInfoWindow.close();
+      }
+
+      infoWindow.open(map, marker);
+
+      currentInfoWindow = infoWindow;
     });
 
     // this is where the pin actually gets added to the map.
