@@ -109,14 +109,6 @@ var education = {
   ]
 };
 
-if (bio.skills.length > 0) {
-  $("#header").append(HTMLskillsStart);
-
-  for (var skill in bio.skills) {
-    $("#skills").append(HTMLskills.replace("%data%", bio.skills[skill]));
-  }
-}
-
 var displayWork = function() {
   for (var job in work.jobs) {
     $("#workExperience").append(HTMLworkStart);
@@ -145,6 +137,26 @@ var inName = function(names) {
   newName = newName.join(" ");
 
   return newName;
+};
+
+bio.display = function() {
+  $("#header").prepend(HTMLheaderRole.replace("%data%", this.role));
+  $("#header").prepend(HTMLheaderName.replace("%data%", this.name));
+  $("#header").append(HTMLbioPic.replace("%data%", this.image));
+
+  $("#topContacts").append(HTMLemail.replace("%data%", this.contacts.email));
+  $("#topContacts").append(HTMLtwitter.replace("%data%", this.contacts.twitter));
+  $("#topContacts").append(HTMLgithub.replace("%data%", this.contacts.github));
+  $("#topContacts").append(HTMLlocation.replace("%data%", this.contacts.location));
+
+  $("#header").append(HTMLwelcomeMsg.replace("%data%", this.welcomeMessage));
+
+  if (bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+    for (var skill in bio.skills) {
+      $("#skills").append(HTMLskills.replace("%data%", bio.skills[skill]));
+    }
+  }
 };
 
 projects.display = function() {
@@ -180,4 +192,6 @@ education.display = function() {
 
 projects.display();
 education.display();
+bio.display();
+
 $("#mapDiv").append(googleMap);
