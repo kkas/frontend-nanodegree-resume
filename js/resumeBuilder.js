@@ -124,3 +124,15 @@ var displayWork = function() {
 displayWork();
 
 $("#main").append(internationalizeButton);
+
+var inName = function(names) {
+  var newName = names;
+
+  newName = newName.trim().split(" ");
+  newName[0] = newName[0].slice(0, 1).toUpperCase() +
+    newName[0].slice(1).toLowerCase();
+  newName[1] = newName[1].toUpperCase();
+  newName = newName.join(" ");
+
+  return newName;
+};
