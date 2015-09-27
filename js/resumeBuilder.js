@@ -23,48 +23,6 @@ var bio = {
   "biopic": "images/fry.jpg"
 };
 
-var work = {
-  "jobs": [
-    {
-      "employer": "Fujitsu Social Science Laboratory Limited",
-      "title": "System Integrator",
-      "location": "Kanagawa, Japan",
-      "dates": "April 2008 - August 2015 (7 years 5 months)",
-      "description": "Designing and implementing internal and external systems for companies, using Java (mostly) and Ruby."
-    },
-    {
-      "employer": "CSU, Bakersfield",
-      "title": "Teaching Assistant",
-      "location": "Bakersfield, CA, US",
-      "dates": "June 2006 - May 2007 (1 year)",
-      "description": "Assisted Students in CMPS120('Computer Skills & Concepts') with grading their homework and assignments, and answering their questions related to the class. Report the results to the professor."
-    }
-  ]
-};
-
-var projects = {
-  "projects": [
-    {
-      "title": "title",
-      "dates": "dates",
-      "description": "description",
-      "images": [
-        "images/197x148.gif",
-        "images/197x148.gif"
-      ]
-    },
-    {
-      "title": "title",
-      "dates": "dates",
-      "description": "description",
-      "images": [
-        "images/197x148.gif",
-        "images/197x148.gif"
-      ]
-    }
-  ]
-};
-
 var education = {
   "schools": [
     {
@@ -108,6 +66,48 @@ var education = {
       "school": "Udacity",
       "dates": 2015,
       "url": "https://www.udacity.com/course/responsive-web-design-fundamentals--ud893"
+    }
+  ]
+};
+
+var work = {
+  "jobs": [
+    {
+      "employer": "Fujitsu Social Science Laboratory Limited",
+      "title": "System Integrator",
+      "location": "Kanagawa, Japan",
+      "dates": "April 2008 - August 2015 (7 years 5 months)",
+      "description": "Designing and implementing internal and external systems for companies, using Java (mostly) and Ruby."
+    },
+    {
+      "employer": "CSU, Bakersfield",
+      "title": "Teaching Assistant",
+      "location": "Bakersfield, CA, US",
+      "dates": "June 2006 - May 2007 (1 year)",
+      "description": "Assisted Students in CMPS120('Computer Skills & Concepts') with grading their homework and assignments, and answering their questions related to the class. Report the results to the professor."
+    }
+  ]
+};
+
+var projects = {
+  "projects": [
+    {
+      "title": "title",
+      "dates": "dates",
+      "description": "description",
+      "images": [
+        "images/197x148.gif",
+        "images/197x148.gif"
+      ]
+    },
+    {
+      "title": "title",
+      "dates": "dates",
+      "description": "description",
+      "images": [
+        "images/197x148.gif",
+        "images/197x148.gif"
+      ]
     }
   ]
 };
