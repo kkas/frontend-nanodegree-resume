@@ -164,8 +164,6 @@ projects.display = function() {
 };
 
 education.display = function() {
-  // $("#education").append(HTMLschoolStart);
-
   for (var school in this.schools) {
     $("#education").append(HTMLschoolStart);
     $(".education-entry").append(HTMLschoolName.replace("%data%", this.schools[school].name) +
