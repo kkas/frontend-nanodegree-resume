@@ -114,8 +114,8 @@ var projects = {
 
 $("#main").append(internationalizeButton);
 
-var inName = function(names) {
-  var newName = names;
+var inName = function() {
+  var newName = bio.name;
 
   newName = newName.trim().split(" ");
   newName[0] = newName[0].slice(0, 1).toUpperCase() +
