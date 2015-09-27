@@ -164,9 +164,10 @@ projects.display = function() {
 };
 
 education.display = function() {
-  $("#education").append(HTMLschoolStart);
+  // $("#education").append(HTMLschoolStart);
 
   for (var school in this.schools) {
+    $("#education").append(HTMLschoolStart);
     $(".education-entry").append(HTMLschoolName.replace("%data%", this.schools[school].name) +
       HTMLschoolDegree.replace("%data%", this.schools[school].degree));
     $(".education-entry").append(HTMLschoolDates.replace("%data%", this.schools[school].dates));
@@ -174,6 +175,18 @@ education.display = function() {
     for (var major in this.schools[school].majors) {
       $(".education-entry").append(HTMLschoolMajor.replace("%data%", this.schools[school].majors[major]));
     }
+  }
+
+  $("#education").append(HTMLonlineClasses);
+
+  for (var course in this.onlineCourses) {
+    $("#education").append(HTMLschoolStart);
+    var onlineCourse =
+      HTMLonlineTitle.replace("%data%", this.onlineCourses[course].title) +
+      HTMLonlineSchool.replace("%data%", this.onlineCourses[course].school) +
+      HTMLonlineDates.replace("%data%", this.onlineCourses[course].dates) +
+      HTMLonlineURL.replace("%data%", this.onlineCourses[course].url);
+    $(".education-entry:last").append(onlineCourse);
   }
 };
 
