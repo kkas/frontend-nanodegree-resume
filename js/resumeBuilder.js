@@ -20,11 +20,21 @@ var work = {
 var projects = {
   "projects": [
     {
-      "title": "",
-      "dates": "",
-      "description": "",
+      "title": "title",
+      "dates": "dates",
+      "description": "description",
       "images": [
-        ""
+        "images/197x148.gif",
+        "images/197x148.gif"
+      ]
+    },
+    {
+      "title": "title",
+      "dates": "dates",
+      "description": "description",
+      "images": [
+        "images/197x148.gif",
+        "images/197x148.gif"
       ]
     }
   ]
