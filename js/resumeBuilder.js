@@ -43,7 +43,9 @@ var projects = {
 var bio = {
   "name": "Kenta Kikui",
   "role": "Front-end Web Developer",
-  "welcomeMessage": "Welcome Message",
+  "welcomeMessage": "I eager to learn new things, especially web developing.<br>" +
+    "I am self learner with a lot of passion.<br>" +
+    "I am enhancing my skills, that are necessary for Front-end web developer, here at Udacity.<br>",
   "contacts": {
     "email": "kentakikui@gmail.com",
     "github": "https://github.com/kkas",
@@ -59,7 +61,8 @@ var bio = {
     "PostgreSQL",
     "git",
     "GitHub"
-  ]
+  ],
+  "image": "images/fry.jpg"
 };
 
 var education = {
