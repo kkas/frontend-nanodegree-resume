@@ -45,6 +45,14 @@ var bio = {
   ]
 };
 
+if (bio.skills.length > 0) {
+  $("#header").append(HTMLskillsStart);
+
+  for (var skill in bio.skills) {
+    $("#skills").append(HTMLskills.replace("%data%", bio.skills[skill]));
+  }
+}
+
 var education = {
   "schools": [
     {
