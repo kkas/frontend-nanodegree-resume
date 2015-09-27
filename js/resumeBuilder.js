@@ -164,6 +164,20 @@ projects.display = function() {
   }
 };
 
-projects.display();
+education.display = function() {
+  $("#education").append(HTMLschoolStart);
 
+  for (var school in this.schools) {
+    $(".education-entry").append(HTMLschoolName.replace("%data%", this.schools[school].name) +
+      HTMLschoolDegree.replace("%data%", this.schools[school].degree));
+    $(".education-entry").append(HTMLschoolDates.replace("%data%", this.schools[school].dates));
+    $(".education-entry").append(HTMLschoolLocation.replace("%data%", this.schools[school].location));
+    for (var major in this.schools[school].majors) {
+      $(".education-entry").append(HTMLschoolMajor.replace("%data%", this.schools[school].majors[major]));
+    }
+  }
+};
+
+projects.display();
+education.display();
 $("#mapDiv").append(googleMap);
