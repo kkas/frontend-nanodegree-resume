@@ -4,14 +4,14 @@ var work = {
       "employer": "Fujitsu Social Science Laboratory Limited",
       "title": "System Integrator",
       "location": "Kanagawa, Japan",
-      "dates": "2008-2015",
+      "dates": "April 2008 - August 2015 (7 years 5 months)",
       "description": "Designing and implementing internal and external systems for companies, using Java (mostly) and Ruby."
     },
     {
       "employer": "CSU, Bakersfield",
       "title": "Teaching Assistant",
       "location": "Bakersfield, CA, US",
-      "dates": "2006-2007",
+      "dates": "June 2006 - May 2007 (1 year)",
       "description": "Assisted Students in CMPS120('Computer Skills & Concepts') with grading their homework and assignments, and answering their questions related to the class."
     }
   ]
@@ -114,4 +114,7 @@ for (var job in work.jobs) {
     HTMLworkTitle.replace("%data%", work.jobs[job].title);
 
   $(".work-entry:last").append(employerAndTitle);
+  $(".work-entry:last").append(HTMLworkDates.replace("%data%", work.jobs[job].dates));
+  $(".work-entry:last").append(HTMLworkLocation.replace("%data%", work.jobs[job].location));
+  $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].description));
 }
