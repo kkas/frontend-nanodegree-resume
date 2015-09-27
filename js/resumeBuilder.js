@@ -107,14 +107,18 @@ if (bio.skills.length > 0) {
   }
 }
 
-for (var job in work.jobs) {
-  $("#workExperience").append(HTMLworkStart);
+var displayWork = function() {
+  for (var job in work.jobs) {
+    $("#workExperience").append(HTMLworkStart);
 
-  var employerAndTitle = HTMLworkEmployer.replace("%data%", work.jobs[job].employer) +
-    HTMLworkTitle.replace("%data%", work.jobs[job].title);
+    var employerAndTitle = HTMLworkEmployer.replace("%data%", work.jobs[job].employer) +
+      HTMLworkTitle.replace("%data%", work.jobs[job].title);
 
-  $(".work-entry:last").append(employerAndTitle);
-  $(".work-entry:last").append(HTMLworkDates.replace("%data%", work.jobs[job].dates));
-  $(".work-entry:last").append(HTMLworkLocation.replace("%data%", work.jobs[job].location));
-  $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].description));
-}
+    $(".work-entry:last").append(employerAndTitle);
+    $(".work-entry:last").append(HTMLworkDates.replace("%data%", work.jobs[job].dates));
+    $(".work-entry:last").append(HTMLworkLocation.replace("%data%", work.jobs[job].location));
+    $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].description));
+  }
+};
+
+displayWork();
