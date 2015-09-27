@@ -93,7 +93,7 @@ var projects = {
   "projects": [
     {
       "title": "title",
-      "dates": "dates",
+      "dates": "dates - dates",
       "description": "description",
       "images": [
         "images/197x148.gif",
@@ -102,7 +102,7 @@ var projects = {
     },
     {
       "title": "title",
-      "dates": "dates",
+      "dates": "dates - dates",
       "description": "description",
       "images": [
         "images/197x148.gif",
