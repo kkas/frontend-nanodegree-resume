@@ -122,3 +122,5 @@ var displayWork = function() {
 };
 
 displayWork();
+
+$("#main").append(internationalizeButton);
