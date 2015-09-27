@@ -112,22 +112,6 @@ var education = {
   ]
 };
 
-var displayWork = function() {
-  for (var job in work.jobs) {
-    $("#workExperience").append(HTMLworkStart);
-
-    var employerAndTitle = HTMLworkEmployer.replace("%data%", work.jobs[job].employer) +
-      HTMLworkTitle.replace("%data%", work.jobs[job].title);
-
-    $(".work-entry:last").append(employerAndTitle);
-    $(".work-entry:last").append(HTMLworkDates.replace("%data%", work.jobs[job].dates));
-    $(".work-entry:last").append(HTMLworkLocation.replace("%data%", work.jobs[job].location));
-    $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].description));
-  }
-};
-
-displayWork();
-
 $("#main").append(internationalizeButton);
 
 var inName = function(names) {
@@ -193,8 +177,23 @@ education.display = function() {
   }
 };
 
+work.display = function() {
+  for (var job in this.jobs) {
+    $("#workExperience").append(HTMLworkStart);
+
+    var employerAndTitle = HTMLworkEmployer.replace("%data%", this.jobs[job].employer) +
+      HTMLworkTitle.replace("%data%", this.jobs[job].title);
+
+    $(".work-entry:last").append(employerAndTitle);
+    $(".work-entry:last").append(HTMLworkDates.replace("%data%", this.jobs[job].dates));
+    $(".work-entry:last").append(HTMLworkLocation.replace("%data%", this.jobs[job].location));
+    $(".work-entry:last").append(HTMLworkDescription.replace("%data%", this.jobs[job].description));
+  }
+};
+
 projects.display();
 education.display();
 bio.display();
+work.display();
 
 $("#mapDiv").append(googleMap);
