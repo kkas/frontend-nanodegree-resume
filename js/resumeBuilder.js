@@ -12,7 +12,7 @@ var work = {
       "title": "Teaching Assistant",
       "location": "Bakersfield, CA, US",
       "dates": "June 2006 - May 2007 (1 year)",
-      "description": "Assisted Students in CMPS120('Computer Skills & Concepts') with grading their homework and assignments, and answering their questions related to the class."
+      "description": "Assisted Students in CMPS120('Computer Skills & Concepts') with grading their homework and assignments, and answering their questions related to the class. Report the results to the professor."
     }
   ]
 };
