@@ -1,11 +1,18 @@
 var work = {
   "jobs": [
     {
-      "employer": "",
-      "title": "",
-      "location": "",
-      "dates": "",
-      "description": ""
+      "employer": "Fujitsu Social Science Laboratory Limited",
+      "title": "System Integrator",
+      "location": "Kanagawa, Japan",
+      "dates": "2008-2015",
+      "description": "Designing and implementing internal and external systems for companies, using Java (mostly) and Ruby."
+    },
+    {
+      "employer": "CSU, Bakersfield",
+      "title": "Teaching Assistant",
+      "location": "Bakersfield, CA, US",
+      "dates": "2006-2007",
+      "description": "Assisted Students in CMPS120('Computer Skills & Concepts') with grading their homework and assignments, and answering their questions related to the class."
     }
   ]
 };
