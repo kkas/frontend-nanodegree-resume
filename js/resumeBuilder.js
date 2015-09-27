@@ -136,3 +136,22 @@ var inName = function(names) {
 
   return newName;
 };
+
+projects.display = function() {
+  $("#projects").append(HTMLprojectStart);
+
+  for (var project in this.projects) {
+    $(".project-entry:last").append(HTMLprojectTitle.replace(
+      "%data%", this.projects[project].title));
+    $(".project-entry:last").append(HTMLprojectDates.replace(
+      "%data%", this.projects[project].dates));
+    $(".project-entry:last").append(HTMLprojectDescription.replace(
+      "%data%", this.projects[project].description));
+    for (var image in this.projects[project].images) {
+      $(".project-entry:last").append(HTMLprojectImage.replace(
+      "%data%", this.projects[project].images[image]));
+    }
+  }
+};
+
+projects.display();
