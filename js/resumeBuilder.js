@@ -175,12 +175,15 @@ education.display = function() {
   // Add a div, like a container, for each item.
   // Then, all the items are added inside the container.
   this.schools.forEach(function(school) {
+    var schoolNameAndDegree;
+
     $("#education").append(HTMLschoolStart);
 
     // School name followed by the degree earned.
-    $(".education-entry").append(HTMLschoolName.replace("%data%", school.name) +
-      HTMLschoolDegree.replace("%data%", school.degree));
+    schoolNameAndDegree = HTMLschoolName.replace("%data%", school.name) +
+      HTMLschoolDegree.replace("%data%", school.degree);
 
+    $(".education-entry").append(schoolNameAndDegree);
     $(".education-entry").append(HTMLschoolDates.replace("%data%", school.dates));
     $(".education-entry").append(HTMLschoolLocation.replace("%data%", school.location));
 
