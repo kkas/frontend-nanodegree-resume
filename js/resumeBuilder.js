@@ -200,7 +200,7 @@ education.display = function() {
     this.onlineCourses.forEach(function(course) {
       var onlineTitleAndSchool;
 
-      // Add a dive for each item, that holds all the related info.
+      // Add a div for each item, that holds all the related info.
       $("#education").append(HTMLschoolStart);
 
       // Online Course name followed by the school name.
@@ -222,7 +222,7 @@ work.display = function() {
   this.jobs.forEach(function(job) {
     var employerAndTitle;
 
-    // Add a dive for each item, that holds all the related info.
+    // Add a div for each item, that holds all the related info.
     $("#workExperience").append(HTMLworkStart);
 
     // Employer name followed by the title.
@@ -242,7 +242,7 @@ work.display = function() {
  */
 projects.display = function() {
   this.projects.forEach(function(project) {
-    // Add a dive for each item, that holds all the related info.
+    // Add a div for each item, that holds all the related info.
     $("#projects").append(HTMLprojectStart);
 
     $(".project-entry:last").append(HTMLprojectTitle.replace(
