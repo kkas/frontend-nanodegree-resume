@@ -2,6 +2,7 @@ var bio = {
   "name": "Kenta Kikui",
   "role": "Front-end Web Developer",
   "contacts": {
+    "mobile": "+81-90-xxxx-xxxx",
     "email": "kentakikui@gmail.com",
     "github": "https://github.com/kkas",
     "twitter": "@teriyakik",
@@ -129,11 +130,13 @@ bio.display = function() {
   $("#header").prepend(HTMLheaderName.replace("%data%", this.name));
   $("#header").append(HTMLbioPic.replace("%data%", this.biopic));
 
+  $("#topContacts").append(HTMLmobile.replace("%data%", this.contacts.mobile));
   $("#topContacts").append(HTMLemail.replace("%data%", this.contacts.email));
   $("#topContacts").append(HTMLtwitter.replace("%data%", this.contacts.twitter));
   $("#topContacts").append(HTMLgithub.replace("%data%", this.contacts.github));
   $("#topContacts").append(HTMLlocation.replace("%data%", this.contacts.location));
 
+  $("#footerContacts").append(HTMLmobile.replace("%data%", this.contacts.mobile));
   $("#footerContacts").append(HTMLemail.replace("%data%", this.contacts.email));
   $("#footerContacts").append(HTMLtwitter.replace("%data%", this.contacts.twitter));
   $("#footerContacts").append(HTMLgithub.replace("%data%", this.contacts.github));
