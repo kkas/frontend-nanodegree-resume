@@ -130,8 +130,15 @@ bio.display = function() {
   $("#header").prepend(HTMLheaderRole.replace("%data%", this.role));
   $("#header").prepend(HTMLheaderName.replace("%data%", this.name));
   $("#header").append(HTMLbioPic.replace("%data%", this.biopic));
-
   $("#header").append(HTMLwelcomeMsg.replace("%data%", this.welcomeMessage));
+
+  if (bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+
+    bio.skills.forEach(function(skill) {
+      $("#skills").append(HTMLskills.replace("%data%", skill));
+    });
+  }
 
   $("#topContacts").append(HTMLmobile.replace("%data%", this.contacts.mobile));
   $("#topContacts").append(HTMLemail.replace("%data%", this.contacts.email));
@@ -144,14 +151,6 @@ bio.display = function() {
   $("#footerContacts").append(HTMLtwitter.replace("%data%", this.contacts.twitter));
   $("#footerContacts").append(HTMLgithub.replace("%data%", this.contacts.github));
   $("#footerContacts").append(HTMLlocation.replace("%data%", this.contacts.location));
-
-  if (bio.skills.length > 0) {
-    $("#header").append(HTMLskillsStart);
-
-    bio.skills.forEach(function(skill) {
-      $("#skills").append(HTMLskills.replace("%data%", skill));
-    });
-  }
 };
 
 education.display = function() {
