@@ -134,6 +134,11 @@ bio.display = function() {
   $("#topContacts").append(HTMLgithub.replace("%data%", this.contacts.github));
   $("#topContacts").append(HTMLlocation.replace("%data%", this.contacts.location));
 
+  $("#footerContacts").append(HTMLemail.replace("%data%", this.contacts.email));
+  $("#footerContacts").append(HTMLtwitter.replace("%data%", this.contacts.twitter));
+  $("#footerContacts").append(HTMLgithub.replace("%data%", this.contacts.github));
+  $("#footerContacts").append(HTMLlocation.replace("%data%", this.contacts.location));
+
   $("#header").append(HTMLwelcomeMsg.replace("%data%", this.welcomeMessage));
 
   if (bio.skills.length > 0) {
