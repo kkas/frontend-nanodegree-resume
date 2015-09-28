@@ -187,6 +187,7 @@ education.display = function() {
     $(".education-entry").append(HTMLschoolDates.replace("%data%", school.dates));
     $(".education-entry").append(HTMLschoolLocation.replace("%data%", school.location));
 
+    // Append majors if defined.
     school.majors.forEach(function(major) {
       $(".education-entry").append(HTMLschoolMajor.replace("%data%", major));
     });
