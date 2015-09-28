@@ -1,0 +1,84 @@
+/* These styles are mobile first. Only additional styles to style.css
+   are difined here. */
+
+/****************************************/
+/* Navigation Bar                       */
+/****************************************/
+/* Styles for the nav element. */
+.nav {
+  text-align: right;
+  background-color: #f9bc5e;
+}
+
+/* At the breakpoint, the navigation bar stays displayed */
+@media only screen and (min-width: 750px) {
+  .nav {
+    text-align: center;
+  }
+}
+
+/* Styles for the list element in the navigation bar. */
+.nav-list {
+  position: absolute;
+  transform: translate(-9999px, 0);
+}
+
+/* At the breakpoint, the navigation bar will be changed to stay displayed */
+@media only screen and (min-width: 750px) {
+  .nav-list {
+    position: relative;
+    transform: translate(0, 0);
+  }
+}
+
+/* Styles used to indicate the menu bar is shown. */
+.open {
+  display: block;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+/* Styles for the list item in the navigation bar. */
+.nav-list li {
+  display: list-item;
+  background-color: #f9bc5e;
+  width: 40vw;
+  text-align: center;
+  padding: 20px;
+  border: solid 1px #ffffff;
+  font-size: 1.5em;
+}
+
+/* At the breakpoint, the navigation bar will be changed to stay displayed */
+@media only screen and (min-width: 750px) {
+  .nav-list li {
+    display: inline-block;
+    padding: 0;
+    border: none;
+    font-size: 1em;
+    width: calc(95vw / 4);
+  }
+}
+
+/* Styles for the anchor elements in the list items in the navigation bar.  */
+.nav-list li a {
+  margin: 0;
+}
+
+/* Styles for the hamburger icon on the right on small display. */
+.hamburger-icon {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* At the breakpoint, the navigation bar will be changed to stay displayed */
+@media only screen and (min-width: 750px) {
+  .hamburger-icon {
+    display: none !important;
+  }
+}
+
+/* Styles for the navigation bar when the menu is displayed. */
+.shown {
+  background-color: #ffd99e;
+}

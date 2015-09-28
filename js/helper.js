@@ -256,3 +256,83 @@ window.addEventListener('load', initializeMap);
   //Make sure the map bounds get updated on page resize
 //  map.fitBounds(mapBounds);
 //});
+
+// Make sure the events are triggered after DOM is constructed.
+$(function() {
+  // Indicates the menu bar is shown (open).
+  var MENU_BAR_OPEN = "open";
+  var MENU_SHOWN = "shown";
+
+  /**
+   * Find the y-axis position of the element using
+   * kword parameter.
+   * @param  {string} kword keyword for the target element.
+   * @return {Object} Y-axis position or undefined.
+   */
+  var findPointY = function(kword) {
+    switch (kword) {
+      case "work":
+        // return $("#workExperience").scrollTop();
+        return $("#workExperience").offset().top;
+
+      case "projects":
+        return $("#projects").offset().top;
+
+      case "education":
+        return $("#education").offset().top;
+
+      case "map":
+        return $("#map").offset().top;
+
+      default:
+        console.log("couldn't find the element.");
+    }
+  };
+
+  /**
+   * Scroll the page to the target element.
+   * @param  {event} event Event object that is passed to the handler.
+   * @return {undefined}
+   */
+  var smoothScroll = function(event) {
+    var pointY;
+
+    // Nutralize the default click event of the element, <a>.
+    event.preventDefault();
+
+    // Find the y-axis point of the element you want to scroll to.
+    pointY = findPointY($(this).attr("data-section-name"));
+    console.log("pointY: " + pointY);
+
+    // Hide menu bar before scrolling.
+    hideMenuBar();
+
+    // Scroll to the element within 1000ms.
+    $("body").animate({scrollTop: pointY}, 1000);
+  };
+
+  /**
+   * Toggle the class for displaying the menu bar.
+   * @param  {event} event Event object that is passed to the handler.
+   * @return {undefined}
+   */
+  var toggleMenuBar = function(event) {
+    $(".nav-list").toggleClass(MENU_BAR_OPEN);
+    $(".nav").toggleClass(MENU_SHOWN);
+  };
+
+  /**
+   * Hide the menu bar by removing the class.
+   * @param  {event} event Event object that is passed to the handler.
+   * @return {undefined}
+   */
+  var hideMenuBar = function(event) {
+    $(".nav-list").removeClass(MENU_BAR_OPEN);
+    $(".nav").removeClass(MENU_SHOWN);
+  };
+
+  // Bind events to the elements.
+  $(".nav-item-link").bind("click", smoothScroll);
+  $(".hamburger-icon").bind("click", toggleMenuBar);
+  $("#main").children("div").bind("click", hideMenuBar);
+});
