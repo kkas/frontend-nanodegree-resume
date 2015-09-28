@@ -131,6 +131,8 @@ bio.display = function() {
   $("#header").prepend(HTMLheaderName.replace("%data%", this.name));
   $("#header").append(HTMLbioPic.replace("%data%", this.biopic));
 
+  $("#header").append(HTMLwelcomeMsg.replace("%data%", this.welcomeMessage));
+
   $("#topContacts").append(HTMLmobile.replace("%data%", this.contacts.mobile));
   $("#topContacts").append(HTMLemail.replace("%data%", this.contacts.email));
   $("#topContacts").append(HTMLtwitter.replace("%data%", this.contacts.twitter));
@@ -142,8 +144,6 @@ bio.display = function() {
   $("#footerContacts").append(HTMLtwitter.replace("%data%", this.contacts.twitter));
   $("#footerContacts").append(HTMLgithub.replace("%data%", this.contacts.github));
   $("#footerContacts").append(HTMLlocation.replace("%data%", this.contacts.location));
-
-  $("#header").append(HTMLwelcomeMsg.replace("%data%", this.welcomeMessage));
 
   if (bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
@@ -170,22 +170,26 @@ education.display = function() {
   $("#education").append(HTMLonlineClasses);
 
   this.onlineCourses.forEach(function(course) {
+    var onlineTitleAndSchool;
+
     $("#education").append(HTMLschoolStart);
 
-    var onlineCourse =
-      HTMLonlineTitle.replace("%data%", course.title) +
-      HTMLonlineSchool.replace("%data%", course.school) +
-      HTMLonlineDates.replace("%data%", course.dates) +
-      HTMLonlineURL.replace("%data%", course.url);
-    $(".education-entry:last").append(onlineCourse);
+    onlineTitleAndSchool = HTMLonlineTitle.replace("%data%", course.title) +
+      HTMLonlineSchool.replace("%data%", course.school);
+
+    $(".education-entry:last").append(onlineTitleAndSchool);
+    $(".education-entry:last").append(HTMLonlineDates.replace("%data%", course.dates));
+    $(".education-entry:last").append(HTMLonlineURL.replace("%data%", course.url));
   });
 };
 
 work.display = function() {
   this.jobs.forEach(function(job) {
+    var employerAndTitle;
+
     $("#workExperience").append(HTMLworkStart);
 
-    var employerAndTitle = HTMLworkEmployer.replace("%data%", job.employer) +
+    employerAndTitle = HTMLworkEmployer.replace("%data%", job.employer) +
       HTMLworkTitle.replace("%data%", job.title);
 
     $(".work-entry:last").append(employerAndTitle);
