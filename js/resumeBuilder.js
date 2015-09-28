@@ -219,3 +219,4 @@ work.display();
 
 $("#mapDiv").append(googleMap);
 $("#main").append(internationalizeButton);
+
