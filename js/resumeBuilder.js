@@ -114,6 +114,13 @@ var projects = {
   ]
 };
 
+/**
+ * Make bio.name to internationalized.
+ * The last name will be all-uppercased, and the first name will be
+ * capitalized.
+ *
+ * @return {string} new, modified name.
+ */
 var inName = function() {
   var newName = bio.name;
 
@@ -126,12 +133,17 @@ var inName = function() {
   return newName;
 };
 
+/**
+ * Displays values in the bio section.
+ * @return {undefined}
+ */
 bio.display = function() {
   $("#header").prepend(HTMLheaderRole.replace("%data%", this.role));
   $("#header").prepend(HTMLheaderName.replace("%data%", this.name));
   $("#header").append(HTMLbioPic.replace("%data%", this.biopic));
   $("#header").append(HTMLwelcomeMsg.replace("%data%", this.welcomeMessage));
 
+  // Append skills if defined.
   if (bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
 
@@ -140,12 +152,14 @@ bio.display = function() {
     });
   }
 
+  // Contacts at the top of the page.
   $("#topContacts").append(HTMLmobile.replace("%data%", this.contacts.mobile));
   $("#topContacts").append(HTMLemail.replace("%data%", this.contacts.email));
   $("#topContacts").append(HTMLtwitter.replace("%data%", this.contacts.twitter));
   $("#topContacts").append(HTMLgithub.replace("%data%", this.contacts.github));
   $("#topContacts").append(HTMLlocation.replace("%data%", this.contacts.location));
 
+  // Contacts at the bottom of the page.
   $("#footerContacts").append(HTMLmobile.replace("%data%", this.contacts.mobile));
   $("#footerContacts").append(HTMLemail.replace("%data%", this.contacts.email));
   $("#footerContacts").append(HTMLtwitter.replace("%data%", this.contacts.twitter));
@@ -153,11 +167,20 @@ bio.display = function() {
   $("#footerContacts").append(HTMLlocation.replace("%data%", this.contacts.location));
 };
 
+/**
+ * Displays values in the education section.
+ * @return {undefined}
+ */
 education.display = function() {
+  // Add a div, like a container, for each item.
+  // Then, all the items are added inside the container.
   this.schools.forEach(function(school) {
     $("#education").append(HTMLschoolStart);
+
+    // School name followed by the degree earned.
     $(".education-entry").append(HTMLschoolName.replace("%data%", school.name) +
       HTMLschoolDegree.replace("%data%", school.degree));
+
     $(".education-entry").append(HTMLschoolDates.replace("%data%", school.dates));
     $(".education-entry").append(HTMLschoolLocation.replace("%data%", school.location));
 
@@ -166,13 +189,16 @@ education.display = function() {
     });
   });
 
+  // Online courses.
   $("#education").append(HTMLonlineClasses);
 
   this.onlineCourses.forEach(function(course) {
     var onlineTitleAndSchool;
 
+    // Add a dive for each item, that holds all the related info.
     $("#education").append(HTMLschoolStart);
 
+    // Online Course name followed by the school name.
     onlineTitleAndSchool = HTMLonlineTitle.replace("%data%", course.title) +
       HTMLonlineSchool.replace("%data%", course.school);
 
@@ -182,12 +208,18 @@ education.display = function() {
   });
 };
 
+/**
+ * Displays values in the work section.
+ * @return {undefined}
+ */
 work.display = function() {
   this.jobs.forEach(function(job) {
     var employerAndTitle;
 
+    // Add a dive for each item, that holds all the related info.
     $("#workExperience").append(HTMLworkStart);
 
+    // Employer name followed by the title.
     employerAndTitle = HTMLworkEmployer.replace("%data%", job.employer) +
       HTMLworkTitle.replace("%data%", job.title);
 
@@ -198,8 +230,13 @@ work.display = function() {
   });
 };
 
+/**
+ * Displays values in the projects section.
+ * @return {undefined}
+ */
 projects.display = function() {
   this.projects.forEach(function(project) {
+    // Add a dive for each item, that holds all the related info.
     $("#projects").append(HTMLprojectStart);
 
     $(".project-entry:last").append(HTMLprojectTitle.replace(
@@ -208,6 +245,8 @@ projects.display = function() {
       "%data%", project.dates));
     $(".project-entry:last").append(HTMLprojectDescription.replace(
       "%data%", project.description));
+
+    // Append project images if defined.
     project.images.forEach(function(image) {
       $(".project-entry:last").append(HTMLprojectImage.replace(
       "%data%", image));
@@ -215,11 +254,14 @@ projects.display = function() {
   });
 };
 
+// Call display() for each objects.
 bio.display();
 education.display();
 work.display();
 projects.display();
 
+// Add the google map to the page.
 $("#mapDiv").append(googleMap);
-$("#main").append(internationalizeButton);
 
+// Add the internationalization button to the bottom of the page.
+$("#main").append(internationalizeButton);
