@@ -138,66 +138,69 @@ bio.display = function() {
 
   if (bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
-    for (var skill in bio.skills) {
-      $("#skills").append(HTMLskills.replace("%data%", bio.skills[skill]));
-    }
+
+    bio.skills.forEach(function(skill) {
+      $("#skills").append(HTMLskills.replace("%data%", skill));
+    });
   }
 };
 
 projects.display = function() {
-  for (var project in this.projects) {
+  this.projects.forEach(function(project) {
     $("#projects").append(HTMLprojectStart);
 
     $(".project-entry:last").append(HTMLprojectTitle.replace(
-      "%data%", this.projects[project].title));
+      "%data%", project.title));
     $(".project-entry:last").append(HTMLprojectDates.replace(
-      "%data%", this.projects[project].dates));
+      "%data%", project.dates));
     $(".project-entry:last").append(HTMLprojectDescription.replace(
-      "%data%", this.projects[project].description));
-    for (var image in this.projects[project].images) {
+      "%data%", project.description));
+    project.images.forEach(function(image) {
       $(".project-entry:last").append(HTMLprojectImage.replace(
-      "%data%", this.projects[project].images[image]));
-    }
-  }
+      "%data%", image));
+    });
+  });
 };
 
 education.display = function() {
-  for (var school in this.schools) {
+  this.schools.forEach(function(school) {
     $("#education").append(HTMLschoolStart);
-    $(".education-entry").append(HTMLschoolName.replace("%data%", this.schools[school].name) +
-      HTMLschoolDegree.replace("%data%", this.schools[school].degree));
-    $(".education-entry").append(HTMLschoolDates.replace("%data%", this.schools[school].dates));
-    $(".education-entry").append(HTMLschoolLocation.replace("%data%", this.schools[school].location));
-    for (var major in this.schools[school].majors) {
-      $(".education-entry").append(HTMLschoolMajor.replace("%data%", this.schools[school].majors[major]));
-    }
-  }
+    $(".education-entry").append(HTMLschoolName.replace("%data%", school.name) +
+      HTMLschoolDegree.replace("%data%", school.degree));
+    $(".education-entry").append(HTMLschoolDates.replace("%data%", school.dates));
+    $(".education-entry").append(HTMLschoolLocation.replace("%data%", school.location));
+
+    school.majors.forEach(function(major) {
+      $(".education-entry").append(HTMLschoolMajor.replace("%data%", major));
+    });
+  });
 
   $("#education").append(HTMLonlineClasses);
 
-  for (var course in this.onlineCourses) {
+  this.onlineCourses.forEach(function(course) {
     $("#education").append(HTMLschoolStart);
+
     var onlineCourse =
-      HTMLonlineTitle.replace("%data%", this.onlineCourses[course].title) +
-      HTMLonlineSchool.replace("%data%", this.onlineCourses[course].school) +
-      HTMLonlineDates.replace("%data%", this.onlineCourses[course].dates) +
-      HTMLonlineURL.replace("%data%", this.onlineCourses[course].url);
+      HTMLonlineTitle.replace("%data%", course.title) +
+      HTMLonlineSchool.replace("%data%", course.school) +
+      HTMLonlineDates.replace("%data%", course.dates) +
+      HTMLonlineURL.replace("%data%", course.url);
     $(".education-entry:last").append(onlineCourse);
-  }
+  });
 };
 
 work.display = function() {
-  for (var job in this.jobs) {
+  this.jobs.forEach(function(job) {
     $("#workExperience").append(HTMLworkStart);
 
-    var employerAndTitle = HTMLworkEmployer.replace("%data%", this.jobs[job].employer) +
-      HTMLworkTitle.replace("%data%", this.jobs[job].title);
+    var employerAndTitle = HTMLworkEmployer.replace("%data%", job.employer) +
+      HTMLworkTitle.replace("%data%", job.title);
 
     $(".work-entry:last").append(employerAndTitle);
-    $(".work-entry:last").append(HTMLworkDates.replace("%data%", this.jobs[job].dates));
-    $(".work-entry:last").append(HTMLworkLocation.replace("%data%", this.jobs[job].location));
-    $(".work-entry:last").append(HTMLworkDescription.replace("%data%", this.jobs[job].description));
-  }
+    $(".work-entry:last").append(HTMLworkDates.replace("%data%", job.dates));
+    $(".work-entry:last").append(HTMLworkLocation.replace("%data%", job.location));
+    $(".work-entry:last").append(HTMLworkDescription.replace("%data%", job.description));
+  });
 };
 
 projects.display();
