@@ -260,8 +260,8 @@ window.addEventListener('load', initializeMap);
 // Make sure the events are triggered after DOM is constructed.
 $(function() {
   // Indicates the menu bar is shown (open).
-  var MENU_BAR_OPEN = "open";
-  var MENU_SHOWN = "shown";
+  var MENU_BAR_OPEN = 'open';
+  var MENU_SHOWN = 'shown';
 
   /**
    * Find the y-axis position of the element using
@@ -271,21 +271,20 @@ $(function() {
    */
   var findPointY = function(kword) {
     switch (kword) {
-      case "work":
-        // return $("#workExperience").scrollTop();
-        return $("#workExperience").offset().top;
+      case 'work':
+        return $('#workExperience').offset().top;
 
-      case "projects":
-        return $("#projects").offset().top;
+      case 'projects':
+        return $('#projects').offset().top;
 
-      case "education":
-        return $("#education").offset().top;
+      case 'education':
+        return $('#education').offset().top;
 
-      case "map":
-        return $("#map").offset().top;
+      case 'map':
+        return $('#map').offset().top;
 
       default:
-        console.log("couldn't find the element.");
+        console.log('Could not find the element.');
     }
   };
 
@@ -301,14 +300,13 @@ $(function() {
     event.preventDefault();
 
     // Find the y-axis point of the element you want to scroll to.
-    pointY = findPointY($(this).attr("data-section-name"));
-    console.log("pointY: " + pointY);
+    pointY = findPointY($(this).attr('data-section-name'));
 
     // Hide menu bar before scrolling.
     hideMenuBar();
 
     // Scroll to the element within 1000ms.
-    $("body").animate({scrollTop: pointY}, 1000);
+    $('body').animate({scrollTop: pointY}, 1000);
   };
 
   /**
@@ -317,8 +315,8 @@ $(function() {
    * @return {undefined}
    */
   var toggleMenuBar = function(event) {
-    $(".nav-list").toggleClass(MENU_BAR_OPEN);
-    $(".nav").toggleClass(MENU_SHOWN);
+    $('.nav-list').toggleClass(MENU_BAR_OPEN);
+    $('.nav').toggleClass(MENU_SHOWN);
   };
 
   /**
@@ -327,12 +325,12 @@ $(function() {
    * @return {undefined}
    */
   var hideMenuBar = function(event) {
-    $(".nav-list").removeClass(MENU_BAR_OPEN);
-    $(".nav").removeClass(MENU_SHOWN);
+    $('.nav-list').removeClass(MENU_BAR_OPEN);
+    $('.nav').removeClass(MENU_SHOWN);
   };
 
   // Bind events to the elements.
-  $(".nav-item-link").bind("click", smoothScroll);
-  $(".hamburger-icon").bind("click", toggleMenuBar);
-  $("#main").children("div").bind("click", hideMenuBar);
+  $('.nav-item-link').bind('click', smoothScroll);
+  $('.hamburger-icon').bind('click', toggleMenuBar);
+  $('#main').children('div').bind('click', hideMenuBar);
 });
