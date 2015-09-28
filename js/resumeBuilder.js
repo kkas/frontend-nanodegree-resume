@@ -193,23 +193,25 @@ education.display = function() {
     });
   });
 
-  // Online courses.
-  $("#education").append(HTMLonlineClasses);
+  // Append online courses if any.
+  if (this.onlineCourses.length > 0) {
+    $("#education").append(HTMLonlineClasses);
 
-  this.onlineCourses.forEach(function(course) {
-    var onlineTitleAndSchool;
+    this.onlineCourses.forEach(function(course) {
+      var onlineTitleAndSchool;
 
-    // Add a dive for each item, that holds all the related info.
-    $("#education").append(HTMLschoolStart);
+      // Add a dive for each item, that holds all the related info.
+      $("#education").append(HTMLschoolStart);
 
-    // Online Course name followed by the school name.
-    onlineTitleAndSchool = HTMLonlineTitle.replace("%data%", course.title) +
-      HTMLonlineSchool.replace("%data%", course.school);
+      // Online Course name followed by the school name.
+      onlineTitleAndSchool = HTMLonlineTitle.replace("%data%", course.title) +
+        HTMLonlineSchool.replace("%data%", course.school);
 
-    $(".education-entry:last").append(onlineTitleAndSchool);
-    $(".education-entry:last").append(HTMLonlineDates.replace("%data%", course.dates));
-    $(".education-entry:last").append(HTMLonlineURL.replace("%data%", course.url));
-  });
+      $(".education-entry:last").append(onlineTitleAndSchool);
+      $(".education-entry:last").append(HTMLonlineDates.replace("%data%", course.dates));
+      $(".education-entry:last").append(HTMLonlineURL.replace("%data%", course.url));
+    });
+  }
 };
 
 /**
