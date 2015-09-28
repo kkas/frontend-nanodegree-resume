@@ -154,23 +154,6 @@ bio.display = function() {
   }
 };
 
-projects.display = function() {
-  this.projects.forEach(function(project) {
-    $("#projects").append(HTMLprojectStart);
-
-    $(".project-entry:last").append(HTMLprojectTitle.replace(
-      "%data%", project.title));
-    $(".project-entry:last").append(HTMLprojectDates.replace(
-      "%data%", project.dates));
-    $(".project-entry:last").append(HTMLprojectDescription.replace(
-      "%data%", project.description));
-    project.images.forEach(function(image) {
-      $(".project-entry:last").append(HTMLprojectImage.replace(
-      "%data%", image));
-    });
-  });
-};
-
 education.display = function() {
   this.schools.forEach(function(school) {
     $("#education").append(HTMLschoolStart);
@@ -212,10 +195,27 @@ work.display = function() {
   });
 };
 
-projects.display();
-education.display();
+projects.display = function() {
+  this.projects.forEach(function(project) {
+    $("#projects").append(HTMLprojectStart);
+
+    $(".project-entry:last").append(HTMLprojectTitle.replace(
+      "%data%", project.title));
+    $(".project-entry:last").append(HTMLprojectDates.replace(
+      "%data%", project.dates));
+    $(".project-entry:last").append(HTMLprojectDescription.replace(
+      "%data%", project.description));
+    project.images.forEach(function(image) {
+      $(".project-entry:last").append(HTMLprojectImage.replace(
+      "%data%", image));
+    });
+  });
+};
+
 bio.display();
+education.display();
 work.display();
+projects.display();
 
 $("#mapDiv").append(googleMap);
 $("#main").append(internationalizeButton);
