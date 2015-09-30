@@ -63,6 +63,12 @@ var education = {
       'url': 'https://www.udacity.com/course/javascript-basics--ud804'
     },
     {
+      'title': 'Object-Oriented JavaScript',
+      'school': 'Udacity',
+      'dates': 2015,
+      'url': 'https://www.udacity.com/course/object-oriented-javascript--ud015',
+    },
+    {
       'title': 'Responsive Images',
       'school': 'Udacity',
       'dates': 2015,
