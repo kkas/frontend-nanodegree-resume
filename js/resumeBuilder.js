@@ -51,6 +51,12 @@ var education = {
       'url': 'https://www.udacity.com/course/intro-to-html-and-css--ud304'
     },
     {
+      'title': 'Intro to jQuery',
+      'school': 'Udacity',
+      'dates': 2015,
+      'url': 'https://www.udacity.com/course/intro-to-jquery--ud245'
+    },
+    {
       'title': 'JavaScript Basics',
       'school': 'Udacity',
       'dates': 2015,
@@ -67,6 +73,18 @@ var education = {
       'school': 'Udacity',
       'dates': 2015,
       'url': 'https://www.udacity.com/course/responsive-web-design-fundamentals--ud893'
+    },
+    {
+      'title': 'Website Performance Optimization (in-progress)',
+      'school': 'Udacity',
+      'dates': 2015,
+      'url': 'https://www.udacity.com/course/website-performance-optimization--ud884'
+    },
+    {
+      'title': 'Browser Rendering Optimization (in-progress)',
+      'school': 'Udacity',
+      'dates': 2015,
+      'url': 'https://www.udacity.com/course/browser-rendering-optimization--ud860'
     }
   ]
 };
