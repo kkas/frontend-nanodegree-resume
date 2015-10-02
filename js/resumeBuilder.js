@@ -39,6 +39,12 @@ var education = {
   ],
   'onlineCourses': [
     {
+      'title': 'HTML5 Canvas',
+      'school': 'Udacity',
+      'dates': 2015,
+      'url': 'https://www.udacity.com/course/html5-canvas--ud292'
+    },
+    {
       'title': 'How to Use Git and GitHub',
       'school': 'Udacity',
       'dates': 2015,
