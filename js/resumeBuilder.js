@@ -197,60 +197,19 @@ bio.display = function() {
   $('#footerContacts').append(HTMLlocation.replace('%data%', this.contacts.location));
 };
 
-/**
- * Displays values in the education section.
- * @return {undefined}
- */
-education.display = function() {
-  // Add a div, like a container, for each item.
-  // Then, all the items are added inside the container.
-  this.schools.forEach(function(school) {
-    var schoolNameAndDegree;
-
-    $('#education').append(HTMLschoolStart);
-
-    // School name followed by the degree earned.
-    schoolNameAndDegree = HTMLschoolName.replace('%data%', school.name) +
-      HTMLschoolDegree.replace('%data%', school.degree);
-
-    $('.education-entry').append(schoolNameAndDegree);
-    $('.education-entry').append(HTMLschoolDates.replace('%data%', school.dates));
-    $('.education-entry').append(HTMLschoolLocation.replace('%data%', school.location));
-
-    // Append majors if defined.
-    school.majors.forEach(function(major) {
-      $('.education-entry').append(HTMLschoolMajor.replace('%data%', major));
-    });
-  });
-
-  // Append online courses if any.
-  if (this.onlineCourses.length > 0) {
-    $('#education').append(HTMLonlineClasses);
-
-    this.onlineCourses.forEach(function(course) {
-      var onlineTitleAndSchool;
-
-      // Add a div for each item, that holds all the related info.
-      $('#education').append(HTMLschoolStart);
-
-      // Online Course name followed by the school name.
-      onlineTitleAndSchool = HTMLonlineTitle.replace('%data%', course.title) +
-        HTMLonlineSchool.replace('%data%', course.school);
-
-      $('.education-entry:last').append(onlineTitleAndSchool);
-      $('.education-entry:last').append(HTMLonlineDates.replace('%data%', course.dates));
-      $('.education-entry:last').append(HTMLonlineURL.replace('%data%', course.url));
-    });
-  }
-};
-
 var octopus = {
   init: function() {
     // Call display() for each objects.
     bio.display();
-    education.display();
+    viewEducation.display();
     viewWork.display();
     viewProject.display();
+  },
+  getSchools: function() {
+    return education.schools;
+  },
+  getOnlineCourses: function() {
+    return education.onlineCourses;
   },
   getJobs: function() {
     return work.jobs;
@@ -261,6 +220,57 @@ var octopus = {
 };
 
 /***** Views *****/
+var viewEducation = {
+  /**
+   * Displays values in the education section.
+   * @return {undefined}
+   */
+  display: function() {
+    var onlineCourses = octopus.getOnlineCourses();
+
+    // Add a div, like a container, for each item.
+    // Then, all the items are added inside the container.
+    octopus.getSchools().forEach(function(school) {
+      var schoolNameAndDegree;
+
+      $('#education').append(HTMLschoolStart);
+
+      // School name followed by the degree earned.
+      schoolNameAndDegree = HTMLschoolName.replace('%data%', school.name) +
+        HTMLschoolDegree.replace('%data%', school.degree);
+
+      $('.education-entry').append(schoolNameAndDegree);
+      $('.education-entry').append(HTMLschoolDates.replace('%data%', school.dates));
+      $('.education-entry').append(HTMLschoolLocation.replace('%data%', school.location));
+
+      // Append majors if defined.
+      school.majors.forEach(function(major) {
+        $('.education-entry').append(HTMLschoolMajor.replace('%data%', major));
+      });
+    });
+
+    // Append online courses if any.
+    if (onlineCourses.length > 0) {
+      $('#education').append(HTMLonlineClasses);
+
+      onlineCourses.forEach(function(course) {
+        var onlineTitleAndSchool;
+
+        // Add a div for each item, that holds all the related info.
+        $('#education').append(HTMLschoolStart);
+
+        // Online Course name followed by the school name.
+        onlineTitleAndSchool = HTMLonlineTitle.replace('%data%', course.title) +
+          HTMLonlineSchool.replace('%data%', course.school);
+
+        $('.education-entry:last').append(onlineTitleAndSchool);
+        $('.education-entry:last').append(HTMLonlineDates.replace('%data%', course.dates));
+        $('.education-entry:last').append(HTMLonlineURL.replace('%data%', course.url));
+      });
+    }
+  }
+};
+
 var viewWork = {
   /**
    * Displays values in the work section.
