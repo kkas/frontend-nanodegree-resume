@@ -150,10 +150,10 @@ var octopus = {
     // Call display() for each view.
     viewBio.display();
     viewEducation.display();
-    viewWork.display();
 
     // Initialize Views.
     viewProject.init();
+    viewWork.init();
 
     // Initialize the goole map.
     viewGoogleMap.init();
@@ -284,6 +284,11 @@ var viewEducation = {
 };
 
 var viewWork = {
+  init: function() {
+    this.$workExperience = $('#workExperience');
+
+    this.display();
+  },
   /**
    * Displays values in the work section.
    * @return {undefined}
@@ -293,7 +298,7 @@ var viewWork = {
       var employerAndTitle;
 
       // Add a div for each item, that holds all the related info.
-      $('#workExperience').append(HTMLworkStart);
+      viewWork.$workExperience.append(HTMLworkStart);
 
       // Employer name followed by the title.
       employerAndTitle = HTMLworkEmployer.replace('%data%', job.employer) +
