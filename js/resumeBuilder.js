@@ -207,7 +207,16 @@ var viewBio = {
     this.$main = $('#main');
 
     // Add the internationalization button to the bottom of the page.
-    this.$main.append(internationalizeButton);
+    this.$internationalizeButton = $(internationalizeButton);
+
+    // Add the onclick event listener.
+    this.$internationalizeButton.click(function() {
+      var iName = viewBio.inName() || function(){};
+      $('#name').html(iName);
+    });
+
+    // Add the button in the main section.
+    this.$main.append(this.$internationalizeButton);
 
     this.display();
   },
