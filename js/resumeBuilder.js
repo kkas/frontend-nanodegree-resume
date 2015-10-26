@@ -1,4 +1,8 @@
 /** Models **/
+/**
+ * This is the Model object for Bio in MVO style.
+ * @type {Object}
+ */
 var bio = {
   'name': 'Kenta Kikui',
   'role': 'Front-end Web Developer',
@@ -25,6 +29,10 @@ var bio = {
   'biopic': 'images/fry.jpg'
 };
 
+/**
+ * This is the Model object for Education in MVO style.
+ * @type {Object}
+ */
 var education = {
   'schools': [
     {
@@ -102,6 +110,10 @@ var education = {
   ]
 };
 
+/**
+ * This is the Model object for Work in MVO style.
+ * @type {Object}
+ */
 var work = {
   'jobs': [
     {
@@ -122,6 +134,10 @@ var work = {
   ]
 };
 
+/**
+ * This is the Model object for Projects in MVO style.
+ * @type {Object}
+ */
 var projects = {
   'projects': [
     {
@@ -145,6 +161,11 @@ var projects = {
   ]
 };
 
+/**
+ * This is the Ocutopus object in MVO style.
+ * This connects the models and the views.
+ * @type {Object}
+ */
 var octopus = {
   init: function() {
     // Initialize Views.
@@ -174,6 +195,10 @@ var octopus = {
 };
 
 /***** Views *****/
+/**
+ * This is the View object for Bio in MVO style.
+ * @type {Object}
+ */
 var viewBio = {
   init: function() {
     this.$header = $('#header');
@@ -237,6 +262,10 @@ var viewBio = {
   }
 };
 
+/**
+ * This is the View object for Education in MVO style.
+ * @type {Object}
+ */
 var viewEducation = {
   init: function() {
     this.$education = $('#education');
@@ -293,6 +322,10 @@ var viewEducation = {
   }
 };
 
+/**
+ * This is the View object for Work in MVO style.
+ * @type {Object}
+ */
 var viewWork = {
   init: function() {
     this.$workExperience = $('#workExperience');
@@ -322,6 +355,10 @@ var viewWork = {
   }
 };
 
+/**
+ * This is the View object for Projects in MVO style.
+ * @type {Object}
+ */
 var viewProject = {
   init: function() {
     this.$projects = $('#projects');
@@ -353,6 +390,10 @@ var viewProject = {
   }
 };
 
+/**
+ * This is the View object for the Google Map in MVO style.
+ * @type {Object}
+ */
 var viewGoogleMap = {
   init: function() {
     this.$mapDiv = $('#mapDiv');
