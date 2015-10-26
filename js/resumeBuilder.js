@@ -290,11 +290,17 @@ projects.display = function() {
   });
 };
 
-// Call display() for each objects.
-bio.display();
-education.display();
-work.display();
-projects.display();
+var octopus = {
+  init: function() {
+    // Call display() for each objects.
+    bio.display();
+    education.display();
+    work.display();
+    projects.display();
+  }
+};
+
+octopus.init();
 
 // Add the google map to the page.
 $('#mapDiv').append(googleMap);
