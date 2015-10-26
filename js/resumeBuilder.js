@@ -151,7 +151,9 @@ var octopus = {
     viewBio.display();
     viewEducation.display();
     viewWork.display();
-    viewProject.display();
+
+    // Initialize Views.
+    viewProject.init();
 
     // Initialize the goole map.
     viewGoogleMap.init();
@@ -306,6 +308,11 @@ var viewWork = {
 };
 
 var viewProject = {
+  init: function() {
+    this.$projects = $('#projects');
+
+    this.display();
+  },
   /**
    * Displays values in the projects section.
    * @return {undefined}
@@ -313,7 +320,7 @@ var viewProject = {
   display: function() {
     octopus.getProjects().forEach(function(project) {
       // Add a div for each item, that holds all the related info.
-      $('#projects').append(HTMLprojectStart);
+      viewProject.$projects.append(HTMLprojectStart);
 
       $('.project-entry:last').append(HTMLprojectTitle.replace(
         '%data%', project.title));
