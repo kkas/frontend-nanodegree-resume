@@ -145,25 +145,6 @@ var projects = {
   ]
 };
 
-/**
- * Make bio.name to internationalized.
- * The last name will be all-uppercased, and the first name will be
- * capitalized.
- *
- * @return {string} new, modified name.
- */
-var inName = function() {
-  var newName = bio.name;
-
-  newName = newName.trim().split(' ');
-  newName[0] = newName[0].slice(0, 1).toUpperCase() +
-    newName[0].slice(1).toLowerCase();
-  newName[1] = newName[1].toUpperCase();
-  newName = newName.join(' ');
-
-  return newName;
-};
-
 var octopus = {
   init: function() {
     // Call display() for each view.
@@ -225,6 +206,24 @@ var viewBio = {
     $('#footerContacts').append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
     $('#footerContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
     $('#footerContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
+  },
+  /**
+   * Make bio.name to internationalized.
+   * The last name will be all-uppercased, and the first name will be
+   * capitalized.
+   *
+   * @return {string} new, modified name.
+   */
+  inName: function() {
+    var newName = octopus.getBio().name;
+
+    newName = newName.trim().split(' ');
+    newName[0] = newName[0].slice(0, 1).toUpperCase() +
+      newName[0].slice(1).toLowerCase();
+    newName[1] = newName[1].toUpperCase();
+    newName = newName.join(' ');
+
+    return newName;
   }
 };
 
