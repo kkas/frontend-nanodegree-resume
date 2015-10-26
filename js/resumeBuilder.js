@@ -163,47 +163,16 @@ var inName = function() {
   return newName;
 };
 
-/**
- * Displays values in the bio section.
- * @return {undefined}
- */
-bio.display = function() {
-  $('#header').prepend(HTMLheaderRole.replace('%data%', this.role));
-  $('#header').prepend(HTMLheaderName.replace('%data%', this.name));
-  $('#header').append(HTMLbioPic.replace('%data%', this.biopic));
-  $('#header').append(HTMLwelcomeMsg.replace('%data%', this.welcomeMessage));
-
-  // Append skills if defined.
-  if (bio.skills.length > 0) {
-    $('#header').append(HTMLskillsStart);
-
-    bio.skills.forEach(function(skill) {
-      $('#skills').append(HTMLskills.replace('%data%', skill));
-    });
-  }
-
-  // Contacts at the top of the page.
-  $('#topContacts').append(HTMLmobile.replace('%data%', this.contacts.mobile));
-  $('#topContacts').append(HTMLemail.replace('%data%', this.contacts.email));
-  $('#topContacts').append(HTMLtwitter.replace('%data%', this.contacts.twitter));
-  $('#topContacts').append(HTMLgithub.replace('%data%', this.contacts.github));
-  $('#topContacts').append(HTMLlocation.replace('%data%', this.contacts.location));
-
-  // Contacts at the bottom of the page.
-  $('#footerContacts').append(HTMLmobile.replace('%data%', this.contacts.mobile));
-  $('#footerContacts').append(HTMLemail.replace('%data%', this.contacts.email));
-  $('#footerContacts').append(HTMLtwitter.replace('%data%', this.contacts.twitter));
-  $('#footerContacts').append(HTMLgithub.replace('%data%', this.contacts.github));
-  $('#footerContacts').append(HTMLlocation.replace('%data%', this.contacts.location));
-};
-
 var octopus = {
   init: function() {
     // Call display() for each objects.
-    bio.display();
+    viewBio.display();
     viewEducation.display();
     viewWork.display();
     viewProject.display();
+  },
+  getBio: function() {
+    return bio;
   },
   getSchools: function() {
     return education.schools;
@@ -220,6 +189,44 @@ var octopus = {
 };
 
 /***** Views *****/
+var viewBio = {
+  /**
+   * Displays values in the bio section.
+   * @return {undefined}
+   */
+  display: function() {
+    var bio = octopus.getBio();
+
+    $('#header').prepend(HTMLheaderRole.replace('%data%', bio.role));
+    $('#header').prepend(HTMLheaderName.replace('%data%', bio.name));
+    $('#header').append(HTMLbioPic.replace('%data%', bio.biopic));
+    $('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
+
+    // Append skills if defined.
+    if (bio.skills.length > 0) {
+      $('#header').append(HTMLskillsStart);
+
+      bio.skills.forEach(function(skill) {
+        $('#skills').append(HTMLskills.replace('%data%', skill));
+      });
+    }
+
+    // Contacts at the top of the page.
+    $('#topContacts').append(HTMLmobile.replace('%data%', bio.contacts.mobile));
+    $('#topContacts').append(HTMLemail.replace('%data%', bio.contacts.email));
+    $('#topContacts').append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
+    $('#topContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
+    $('#topContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
+
+    // Contacts at the bottom of the page.
+    $('#footerContacts').append(HTMLmobile.replace('%data%', bio.contacts.mobile));
+    $('#footerContacts').append(HTMLemail.replace('%data%', bio.contacts.email));
+    $('#footerContacts').append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
+    $('#footerContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
+    $('#footerContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
+  }
+};
+
 var viewEducation = {
   /**
    * Displays values in the education section.
