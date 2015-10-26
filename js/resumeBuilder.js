@@ -244,35 +244,16 @@ education.display = function() {
   }
 };
 
-/**
- * Displays values in the work section.
- * @return {undefined}
- */
-work.display = function() {
-  this.jobs.forEach(function(job) {
-    var employerAndTitle;
-
-    // Add a div for each item, that holds all the related info.
-    $('#workExperience').append(HTMLworkStart);
-
-    // Employer name followed by the title.
-    employerAndTitle = HTMLworkEmployer.replace('%data%', job.employer) +
-      HTMLworkTitle.replace('%data%', job.title);
-
-    $('.work-entry:last').append(employerAndTitle);
-    $('.work-entry:last').append(HTMLworkDates.replace('%data%', job.dates));
-    $('.work-entry:last').append(HTMLworkLocation.replace('%data%', job.location));
-    $('.work-entry:last').append(HTMLworkDescription.replace('%data%', job.description));
-  });
-};
-
 var octopus = {
   init: function() {
     // Call display() for each objects.
     bio.display();
     education.display();
-    work.display();
+    viewWork.display();
     viewProject.display();
+  },
+  getJobs: function() {
+    return work.jobs;
   },
   getProjects: function() {
     return projects.projects;
@@ -280,6 +261,30 @@ var octopus = {
 };
 
 /***** Views *****/
+var viewWork = {
+  /**
+   * Displays values in the work section.
+   * @return {undefined}
+   */
+  display: function() {
+    octopus.getJobs().forEach(function(job) {
+      var employerAndTitle;
+
+      // Add a div for each item, that holds all the related info.
+      $('#workExperience').append(HTMLworkStart);
+
+      // Employer name followed by the title.
+      employerAndTitle = HTMLworkEmployer.replace('%data%', job.employer) +
+        HTMLworkTitle.replace('%data%', job.title);
+
+      $('.work-entry:last').append(employerAndTitle);
+      $('.work-entry:last').append(HTMLworkDates.replace('%data%', job.dates));
+      $('.work-entry:last').append(HTMLworkLocation.replace('%data%', job.location));
+      $('.work-entry:last').append(HTMLworkDescription.replace('%data%', job.description));
+    });
+  }
+};
+
 var viewProject = {
   /**
    * Displays values in the projects section.
