@@ -147,10 +147,8 @@ var projects = {
 
 var octopus = {
   init: function() {
-    // Call display() for each view.
-    viewBio.display();
-
     // Initialize Views.
+    viewBio.init();
     viewEducation.init();
     viewProject.init();
     viewWork.init();
@@ -177,6 +175,13 @@ var octopus = {
 
 /***** Views *****/
 var viewBio = {
+  init: function() {
+    this.$header = $('#header');
+    this.$topContacts = $('#topContacts');
+    this.$footerContacts = $('#footerContacts');
+
+    this.display();
+  },
   /**
    * Displays values in the bio section.
    * @return {undefined}
@@ -184,14 +189,14 @@ var viewBio = {
   display: function() {
     var bio = octopus.getBio();
 
-    $('#header').prepend(HTMLheaderRole.replace('%data%', bio.role));
-    $('#header').prepend(HTMLheaderName.replace('%data%', bio.name));
-    $('#header').append(HTMLbioPic.replace('%data%', bio.biopic));
-    $('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
+    this.$header.prepend(HTMLheaderRole.replace('%data%', bio.role));
+    this.$header.prepend(HTMLheaderName.replace('%data%', bio.name));
+    this.$header.append(HTMLbioPic.replace('%data%', bio.biopic));
+    this.$header.append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
 
     // Append skills if defined.
     if (bio.skills.length > 0) {
-      $('#header').append(HTMLskillsStart);
+      this.$header.append(HTMLskillsStart);
 
       bio.skills.forEach(function(skill) {
         $('#skills').append(HTMLskills.replace('%data%', skill));
@@ -199,18 +204,18 @@ var viewBio = {
     }
 
     // Contacts at the top of the page.
-    $('#topContacts').append(HTMLmobile.replace('%data%', bio.contacts.mobile));
-    $('#topContacts').append(HTMLemail.replace('%data%', bio.contacts.email));
-    $('#topContacts').append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
-    $('#topContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
-    $('#topContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
+    this.$topContacts.append(HTMLmobile.replace('%data%', bio.contacts.mobile));
+    this.$topContacts.append(HTMLemail.replace('%data%', bio.contacts.email));
+    this.$topContacts.append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
+    this.$topContacts.append(HTMLgithub.replace('%data%', bio.contacts.github));
+    this.$topContacts.append(HTMLlocation.replace('%data%', bio.contacts.location));
 
     // Contacts at the bottom of the page.
-    $('#footerContacts').append(HTMLmobile.replace('%data%', bio.contacts.mobile));
-    $('#footerContacts').append(HTMLemail.replace('%data%', bio.contacts.email));
-    $('#footerContacts').append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
-    $('#footerContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
-    $('#footerContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
+    this.$footerContacts.append(HTMLmobile.replace('%data%', bio.contacts.mobile));
+    this.$footerContacts.append(HTMLemail.replace('%data%', bio.contacts.email));
+    this.$footerContacts.append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
+    this.$footerContacts.append(HTMLgithub.replace('%data%', bio.contacts.github));
+    this.$footerContacts.append(HTMLlocation.replace('%data%', bio.contacts.location));
   },
   /**
    * Make bio.name to internationalized.
