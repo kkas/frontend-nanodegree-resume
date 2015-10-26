@@ -1,3 +1,4 @@
+/** Models **/
 var bio = {
   'name': 'Kenta Kikui',
   'role': 'Front-end Web Developer',
@@ -165,7 +166,7 @@ var inName = function() {
 
 var octopus = {
   init: function() {
-    // Call display() for each objects.
+    // Call display() for each view.
     viewBio.display();
     viewEducation.display();
     viewWork.display();
