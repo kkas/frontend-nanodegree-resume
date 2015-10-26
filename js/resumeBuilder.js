@@ -152,6 +152,9 @@ var octopus = {
     viewEducation.display();
     viewWork.display();
     viewProject.display();
+
+    // Initialize the goole map.
+    viewGoogleMap.init();
   },
   getBio: function() {
     return bio;
@@ -328,10 +331,19 @@ var viewProject = {
   }
 };
 
-octopus.init();
+var viewGoogleMap = {
+  init: function() {
+    this.$mapDiv = $('#mapDiv');
 
-// Add the google map to the page.
-$('#mapDiv').append(googleMap);
+    this.render();
+  },
+  render: function() {
+    // Add the google map to the page.
+    this.$mapDiv.append(googleMap);
+  }
+};
+
+octopus.init();
 
 // Add the internationalization button to the bottom of the page.
 $('#main').append(internationalizeButton);
