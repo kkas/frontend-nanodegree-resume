@@ -266,37 +266,43 @@ work.display = function() {
   });
 };
 
-/**
- * Displays values in the projects section.
- * @return {undefined}
- */
-projects.display = function() {
-  this.projects.forEach(function(project) {
-    // Add a div for each item, that holds all the related info.
-    $('#projects').append(HTMLprojectStart);
-
-    $('.project-entry:last').append(HTMLprojectTitle.replace(
-      '%data%', project.title));
-    $('.project-entry:last').append(HTMLprojectDates.replace(
-      '%data%', project.dates));
-    $('.project-entry:last').append(HTMLprojectDescription.replace(
-      '%data%', project.description));
-
-    // Append project images if defined.
-    project.images.forEach(function(image) {
-      $('.project-entry:last').append(HTMLprojectImage.replace(
-      '%data%', image));
-    });
-  });
-};
-
 var octopus = {
   init: function() {
     // Call display() for each objects.
     bio.display();
     education.display();
     work.display();
-    projects.display();
+    viewProject.display();
+  },
+  getProjects: function() {
+    return projects.projects;
+  }
+};
+
+/***** Views *****/
+var viewProject = {
+  /**
+   * Displays values in the projects section.
+   * @return {undefined}
+   */
+  display: function() {
+    octopus.getProjects().forEach(function(project) {
+      // Add a div for each item, that holds all the related info.
+      $('#projects').append(HTMLprojectStart);
+
+      $('.project-entry:last').append(HTMLprojectTitle.replace(
+        '%data%', project.title));
+      $('.project-entry:last').append(HTMLprojectDates.replace(
+        '%data%', project.dates));
+      $('.project-entry:last').append(HTMLprojectDescription.replace(
+        '%data%', project.description));
+
+      // Append project images if defined.
+      project.images.forEach(function(image) {
+        $('.project-entry:last').append(HTMLprojectImage.replace(
+        '%data%', image));
+      });
+    });
   }
 };
 
