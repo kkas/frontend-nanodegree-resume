@@ -149,9 +149,9 @@ var octopus = {
   init: function() {
     // Call display() for each view.
     viewBio.display();
-    viewEducation.display();
 
     // Initialize Views.
+    viewEducation.init();
     viewProject.init();
     viewWork.init();
 
@@ -233,6 +233,11 @@ var viewBio = {
 };
 
 var viewEducation = {
+  init: function() {
+    this.$education = $('#education');
+
+    this.display();
+  },
   /**
    * Displays values in the education section.
    * @return {undefined}
@@ -245,7 +250,7 @@ var viewEducation = {
     octopus.getSchools().forEach(function(school) {
       var schoolNameAndDegree;
 
-      $('#education').append(HTMLschoolStart);
+      viewEducation.$education.append(HTMLschoolStart);
 
       // School name followed by the degree earned.
       schoolNameAndDegree = HTMLschoolName.replace('%data%', school.name) +
@@ -263,13 +268,13 @@ var viewEducation = {
 
     // Append online courses if any.
     if (onlineCourses.length > 0) {
-      $('#education').append(HTMLonlineClasses);
+      viewEducation.$education.append(HTMLonlineClasses);
 
       onlineCourses.forEach(function(course) {
         var onlineTitleAndSchool;
 
         // Add a div for each item, that holds all the related info.
-        $('#education').append(HTMLschoolStart);
+        viewEducation.$education.append(HTMLschoolStart);
 
         // Online Course name followed by the school name.
         onlineTitleAndSchool = HTMLonlineTitle.replace('%data%', course.title) +
