@@ -204,6 +204,10 @@ var viewBio = {
     this.$header = $('#header');
     this.$topContacts = $('#topContacts');
     this.$footerContacts = $('#footerContacts');
+    this.$main = $('#main');
+
+    // Add the internationalization button to the bottom of the page.
+    this.$main.append(internationalizeButton);
 
     this.display();
   },
@@ -407,6 +411,3 @@ var viewGoogleMap = {
 };
 
 octopus.init();
-
-// Add the internationalization button to the bottom of the page.
-$('#main').append(internationalizeButton);
