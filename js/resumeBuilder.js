@@ -1,5 +1,5 @@
 (function(){
-  "use strinct";
+  'use strinct';
 
   /** Models **/
   /**
