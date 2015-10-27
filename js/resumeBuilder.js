@@ -410,6 +410,7 @@ var viewProject = {
 var viewGoogleMap = {
   init: function() {
     this.$mapDiv = $('#mapDiv');
+    this.map;
 
     this.addInitialEvents();
 
@@ -423,6 +424,12 @@ var viewGoogleMap = {
     // Call initializeMap when the DOM is fully ready.
     $(document).ready(this.initializeMap);
   },
+  /**
+   * TODO: add comment
+   * See the documentation below for more details.
+   * https://developers.google.com/maps/documentation/javascript/reference
+   * @return {[type]} [description]
+   */
   initializeMap: function() {
     var locations;
     var currentInfoWindow;
@@ -435,7 +442,7 @@ var viewGoogleMap = {
     For the map to be displayed, the googleMap var must be
     appended to #mapDiv in resumeBuilder.js.
     */
-    map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+    viewGoogleMap.map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
     // Sets the boundaries of the map based on pin locations
     window.mapBounds = new google.maps.LatLngBounds();
@@ -456,7 +463,7 @@ var viewGoogleMap = {
   pinPoster: function(locations) {
     // creates a Google place search service object. PlacesService does the work of
     // actually searching for location data.
-    var service = new google.maps.places.PlacesService(map);
+    var service = new google.maps.places.PlacesService(viewGoogleMap.map);
 
     // Iterates through the array of locations, creates a search object for each location
     for (var place in locations) {
@@ -527,7 +534,7 @@ var viewGoogleMap = {
 
     // marker is an object with additional data about the pin for a single location
     var marker = new google.maps.Marker({
-      map: map,
+      map: viewGoogleMap.map,
       position: placeData.geometry.location,
       title: name
     });
@@ -548,7 +555,7 @@ var viewGoogleMap = {
         currentInfoWindow.close();
       }
 
-      infoWindow.open(map, marker);
+      infoWindow.open(viewGoogleMap.map, marker);
 
       currentInfoWindow = infoWindow;
     });
@@ -557,9 +564,9 @@ var viewGoogleMap = {
     // bounds.extend() takes in a map location object
     bounds.extend(new google.maps.LatLng(lat, lon));
     // fit the map to the new marker
-    map.fitBounds(bounds);
+    viewGoogleMap.map.fitBounds(bounds);
     // center the map
-    map.setCenter(bounds.getCenter());
+    viewGoogleMap.map.setCenter(bounds.getCenter());
   }
 };
 

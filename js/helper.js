@@ -80,15 +80,6 @@ $(document).click(function(loc) {
   logClicks(x, y);
 });
 
-
-
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
-var map;    // declares a global map variable
-
 // Make sure the events are triggered after DOM is constructed.
 $(function() {
   // Indicates the menu bar is shown (open).
