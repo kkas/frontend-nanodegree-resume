@@ -438,66 +438,6 @@ var viewGoogleMap = {
     map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
     /*
-    createMapMarker(placeData) reads Google Places search results to create map pins.
-    placeData is the object returned from search results containing information
-    about a single location.
-    */
-    function createMapMarker(placeData) {
-
-      // The next lines save location data from the search result object to local variables
-      var lat = placeData.geometry.location.lat();  // latitude from the place service
-      var lon = placeData.geometry.location.lng();  // longitude from the place service
-      var name = placeData.formatted_address;   // name of the place from the place service
-      var bounds = window.mapBounds;            // current boundaries of the map window
-
-      // marker is an object with additional data about the pin for a single location
-      var marker = new google.maps.Marker({
-        map: map,
-        position: placeData.geometry.location,
-        title: name
-      });
-
-      // infoWindows are the little helper windows that open when you click
-      // or hover over a pin on a map. They usually contain more information
-      // about a location.
-      var infoWindow = new google.maps.InfoWindow({
-        content: name
-      });
-
-      // Add clicking event to the event listener. To make only one infoWindow can be
-      // open at a time, the newly created infoWindow is stored in currentInfoWindow,
-      // so that every time clicking event get fired, I can close the infoWindow before I
-      // open the new one.
-      google.maps.event.addListener(marker, 'click', function() {
-        if (currentInfoWindow !== undefined) {
-          currentInfoWindow.close();
-        }
-
-        infoWindow.open(map, marker);
-
-        currentInfoWindow = infoWindow;
-      });
-
-      // this is where the pin actually gets added to the map.
-      // bounds.extend() takes in a map location object
-      bounds.extend(new google.maps.LatLng(lat, lon));
-      // fit the map to the new marker
-      map.fitBounds(bounds);
-      // center the map
-      map.setCenter(bounds.getCenter());
-    }
-
-    /*
-    callback(results, status) makes sure the search returned results for a location.
-    If so, it creates a new map marker for that location.
-    */
-    function callback(results, status) {
-      if (status == google.maps.places.PlacesServiceStatus.OK) {
-        createMapMarker(results[0]);
-      }
-    }
-
-    /*
     pinPoster(locations) takes in the array of locations created by locationFinder()
     and fires off Google place searches for each location
     */
@@ -515,9 +455,9 @@ var viewGoogleMap = {
           query: locations[place]
         };
 
-        // Actually searches the Google Maps API for location data and runs the callback
-        // function with the search results after each search.
-        service.textSearch(request, callback);
+        // Actually searches the Google Maps API for location data and runs the
+        // callback function with the search results after each search.
+        service.textSearch(request, viewGoogleMap.callback);
       }
     }
 
@@ -556,6 +496,70 @@ var viewGoogleMap = {
     }
 
     return locations;
+  },
+  /**
+   * A callback function that will be triggered when the textSearch is
+   * completed. Calls a function to create map a marker for the location.
+   * TODO: add comments
+   * @param  {[type]}   results [description]
+   * @param  {[type]}   status  [description]
+   * @return {undefined}
+   */
+  callback: function(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      viewGoogleMap.createMapMarker(results[0]);
+    }
+  },
+  /**
+   * createMapMarker(placeData) reads Google Places search results to create
+   * map pins. placeData is the object returned from search results containing
+   * information about a single location.
+   * TODO: add comments
+   * @param  {[type]} placeData [description]
+   * @return {[type]}           [description]
+   */
+  createMapMarker: function(placeData) {
+    // The next lines save location data from the search result object to local variables
+    var lat = placeData.geometry.location.lat();  // latitude from the place service
+    var lon = placeData.geometry.location.lng();  // longitude from the place service
+    var name = placeData.formatted_address;   // name of the place from the place service
+    var bounds = window.mapBounds;            // current boundaries of the map window
+
+    // marker is an object with additional data about the pin for a single location
+    var marker = new google.maps.Marker({
+      map: map,
+      position: placeData.geometry.location,
+      title: name
+    });
+
+    // infoWindows are the little helper windows that open when you click
+    // or hover over a pin on a map. They usually contain more information
+    // about a location.
+    var infoWindow = new google.maps.InfoWindow({
+      content: name
+    });
+
+    // Add clicking event to the event listener. To make only one infoWindow can be
+    // open at a time, the newly created infoWindow is stored in currentInfoWindow,
+    // so that every time clicking event get fired, I can close the infoWindow before I
+    // open the new one.
+    google.maps.event.addListener(marker, 'click', function() {
+      if (currentInfoWindow !== undefined) {
+        currentInfoWindow.close();
+      }
+
+      infoWindow.open(map, marker);
+
+      currentInfoWindow = infoWindow;
+    });
+
+    // this is where the pin actually gets added to the map.
+    // bounds.extend() takes in a map location object
+    bounds.extend(new google.maps.LatLng(lat, lon));
+    // fit the map to the new marker
+    map.fitBounds(bounds);
+    // center the map
+    map.setCenter(bounds.getCenter());
   }
 };
 
