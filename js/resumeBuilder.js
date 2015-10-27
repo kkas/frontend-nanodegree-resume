@@ -489,21 +489,26 @@
      */
     locationFinder: function() {
       // initializes an empty array
-      var locations = [];
+      var locations = [],
+        i,
+        schools = octopus.getSchools() || [],
+        numSchools = schools.length,
+        jobs = octopus.getJobs() || [],
+        numJobs = jobs.length;
 
       // adds the single location property from bio to the locations array
-      locations.push(bio.contacts.location);
+      locations.push(octopus.getBio().contacts.location);
 
       // iterates through school locations and appends each location to
       // the locations array
-      for (var school in education.schools) {
-        locations.push(education.schools[school].location);
+      for (i = 0; i < numSchools; i++) {
+        locations.push(schools[i].location);
       }
 
       // iterates through work locations and appends each location to
       // the locations array
-      for (var job in work.jobs) {
-        locations.push(work.jobs[job].location);
+      for (i = 0; i < numJobs; i++) {
+        locations.push(jobs[i].location);
       }
 
       return locations;
