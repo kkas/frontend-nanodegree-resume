@@ -413,8 +413,8 @@
   var viewGoogleMap = {
     init: function() {
       this.$mapDiv = $('#mapDiv');
-      this.map;
-      this.currentInfoWindow;
+      this.map = undefined;
+      this.currentInfoWindow = undefined;
 
       this.addInitialEvents();
 
