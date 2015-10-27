@@ -414,6 +414,7 @@
     init: function() {
       this.$mapDiv = $('#mapDiv');
       this.map;
+      this.currentInfoWindow;
 
       this.addInitialEvents();
 
@@ -435,7 +436,6 @@
      */
     initializeMap: function() {
       var locations;
-      var currentInfoWindow;
 
       var mapOptions = {
         disableDefaultUI: true
@@ -554,13 +554,13 @@
       // so that every time clicking event get fired, I can close the infoWindow before I
       // open the new one.
       google.maps.event.addListener(marker, 'click', function() {
-        if (currentInfoWindow !== undefined) {
-          currentInfoWindow.close();
+        if (viewGoogleMap.currentInfoWindow !== undefined) {
+          viewGoogleMap.currentInfoWindow.close();
         }
 
         infoWindow.open(viewGoogleMap.map, marker);
 
-        currentInfoWindow = infoWindow;
+        viewGoogleMap.currentInfoWindow = infoWindow;
       });
 
       // this is where the pin actually gets added to the map.
