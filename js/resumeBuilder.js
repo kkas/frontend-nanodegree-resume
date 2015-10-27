@@ -230,10 +230,12 @@
     display: function() {
       var bio = octopus.getBio();
 
-      this.$header.prepend(HTMLheaderRole.replace('%data%', bio.role));
-      this.$header.prepend(HTMLheaderName.replace('%data%', bio.name));
-      this.$header.append(HTMLbioPic.replace('%data%', bio.biopic));
-      this.$header.append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
+      this.$header.prepend(HTMLheaderRole.replace('%data%', bio.role)).prepend(
+        HTMLheaderName.replace('%data%', bio.name));
+
+      this.$header.append(HTMLbioPic.replace('%data%', bio.biopic)).append(
+        HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
+
 
       // Append skills if defined.
       if (bio.skills.length > 0) {
@@ -245,18 +247,21 @@
       }
 
       // Contacts at the top of the page.
-      this.$topContacts.append(HTMLmobile.replace('%data%', bio.contacts.mobile));
-      this.$topContacts.append(HTMLemail.replace('%data%', bio.contacts.email));
-      this.$topContacts.append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
-      this.$topContacts.append(HTMLgithub.replace('%data%', bio.contacts.github));
-      this.$topContacts.append(HTMLlocation.replace('%data%', bio.contacts.location));
+      this.$topContacts.append(
+        HTMLmobile.replace('%data%', bio.contacts.mobile)).append(
+        HTMLemail.replace('%data%', bio.contacts.email)).append(
+        HTMLtwitter.replace('%data%', bio.contacts.twitter)).append(
+        HTMLgithub.replace('%data%', bio.contacts.github)).append(
+        HTMLlocation.replace('%data%', bio.contacts.location)
+      );
 
       // Contacts at the bottom of the page.
-      this.$footerContacts.append(HTMLmobile.replace('%data%', bio.contacts.mobile));
-      this.$footerContacts.append(HTMLemail.replace('%data%', bio.contacts.email));
-      this.$footerContacts.append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
-      this.$footerContacts.append(HTMLgithub.replace('%data%', bio.contacts.github));
-      this.$footerContacts.append(HTMLlocation.replace('%data%', bio.contacts.location));
+      this.$footerContacts.append(
+        HTMLmobile.replace('%data%', bio.contacts.mobile)).append(
+        HTMLemail.replace('%data%', bio.contacts.email)).append(
+        HTMLtwitter.replace('%data%', bio.contacts.twitter)).append(
+        HTMLgithub.replace('%data%', bio.contacts.github)).append(
+        HTMLlocation.replace('%data%', bio.contacts.location));
     },
     /**
      * Make bio.name to internationalized.
@@ -306,9 +311,9 @@
         schoolNameAndDegree = HTMLschoolName.replace('%data%', school.name) +
           HTMLschoolDegree.replace('%data%', school.degree);
 
-        $('.education-entry').append(schoolNameAndDegree);
-        $('.education-entry').append(HTMLschoolDates.replace('%data%', school.dates));
-        $('.education-entry').append(HTMLschoolLocation.replace('%data%', school.location));
+        $('.education-entry').append(schoolNameAndDegree).append(
+          HTMLschoolDates.replace('%data%', school.dates)).append(
+          HTMLschoolLocation.replace('%data%', school.location));
 
         // Append majors if defined.
         school.majors.forEach(function(major) {
@@ -330,9 +335,9 @@
           onlineTitleAndSchool = HTMLonlineTitle.replace('%data%', course.title) +
             HTMLonlineSchool.replace('%data%', course.school);
 
-          $('.education-entry:last').append(onlineTitleAndSchool);
-          $('.education-entry:last').append(HTMLonlineDates.replace('%data%', course.dates));
-          $('.education-entry:last').append(HTMLonlineURL.replace('%data%', course.url));
+          $('.education-entry:last').append(onlineTitleAndSchool).append(
+            HTMLonlineDates.replace('%data%', course.dates)).append(
+            HTMLonlineURL.replace('%data%', course.url));
         });
       }
     }
@@ -363,10 +368,10 @@
         employerAndTitle = HTMLworkEmployer.replace('%data%', job.employer) +
           HTMLworkTitle.replace('%data%', job.title);
 
-        $('.work-entry:last').append(employerAndTitle);
-        $('.work-entry:last').append(HTMLworkDates.replace('%data%', job.dates));
-        $('.work-entry:last').append(HTMLworkLocation.replace('%data%', job.location));
-        $('.work-entry:last').append(HTMLworkDescription.replace('%data%', job.description));
+        $('.work-entry:last').append(employerAndTitle).append(
+          HTMLworkDates.replace('%data%', job.dates)).append(
+          HTMLworkLocation.replace('%data%', job.location)).append(
+          HTMLworkDescription.replace('%data%', job.description));
       });
     }
   };
@@ -390,12 +395,10 @@
         // Add a div for each item, that holds all the related info.
         viewProject.$projects.append(HTMLprojectStart);
 
-        $('.project-entry:last').append(HTMLprojectTitle.replace(
-          '%data%', project.title));
-        $('.project-entry:last').append(HTMLprojectDates.replace(
-          '%data%', project.dates));
-        $('.project-entry:last').append(HTMLprojectDescription.replace(
-          '%data%', project.description));
+        $('.project-entry:last').append(
+          HTMLprojectTitle.replace('%data%', project.title)).append(
+          HTMLprojectDates.replace('%data%', project.dates)).append(
+          HTMLprojectDescription.replace('%data%', project.description));
 
         // Append project images if defined.
         project.images.forEach(function(image) {
