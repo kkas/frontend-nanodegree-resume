@@ -429,7 +429,8 @@
       $(document).ready(this.initializeMap);
     },
     /**
-     * TODO: add comment
+     * Initialize the Google Map. This function needs to be executed after
+     * the full DOM constructions.
      * See the documentation below for more details.
      * https://developers.google.com/maps/documentation/javascript/reference
      * @return {[type]} [description]
