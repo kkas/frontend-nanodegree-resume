@@ -437,30 +437,6 @@ var viewGoogleMap = {
     */
     map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
-    /*
-    pinPoster(locations) takes in the array of locations created by locationFinder()
-    and fires off Google place searches for each location
-    */
-    function pinPoster(locations) {
-
-      // creates a Google place search service object. PlacesService does the work of
-      // actually searching for location data.
-      var service = new google.maps.places.PlacesService(map);
-
-      // Iterates through the array of locations, creates a search object for each location
-      for (var place in locations) {
-
-        // the search request object
-        var request = {
-          query: locations[place]
-        };
-
-        // Actually searches the Google Maps API for location data and runs the
-        // callback function with the search results after each search.
-        service.textSearch(request, viewGoogleMap.callback);
-      }
-    }
-
     // Sets the boundaries of the map based on pin locations
     window.mapBounds = new google.maps.LatLngBounds();
 
@@ -469,7 +445,31 @@ var viewGoogleMap = {
 
     // pinPoster(locations) creates pins on the map for each location in
     // the locations array
-    pinPoster(locations);
+    viewGoogleMap.pinPoster(locations);
+  },
+  /**
+   * pinPoster(locations) takes in the array of locations created by
+   * locationFinder() and fires off Google place searches for each location
+   * @param  {Array} locations  array that contains locations
+   * @return {undefined}
+   */
+  pinPoster: function(locations) {
+    // creates a Google place search service object. PlacesService does the work of
+    // actually searching for location data.
+    var service = new google.maps.places.PlacesService(map);
+
+    // Iterates through the array of locations, creates a search object for each location
+    for (var place in locations) {
+
+      // the search request object
+      var request = {
+        query: locations[place]
+      };
+
+      // Actually searches the Google Maps API for location data and runs the
+      // callback function with the search results after each search.
+      service.textSearch(request, viewGoogleMap.callback);
+    }
   },
   /**
    * locationFinder() returns an array of every location string from the JSONs
