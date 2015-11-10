@@ -99,13 +99,13 @@
         'url': 'https://www.udacity.com/course/responsive-web-design-fundamentals--ud893'
       },
       {
-        'title': 'Website Performance Optimization (in-progress)',
+        'title': 'Website Performance Optimization',
         'school': 'Udacity',
         'dates': 2015,
         'url': 'https://www.udacity.com/course/website-performance-optimization--ud884'
       },
       {
-        'title': 'Browser Rendering Optimization (in-progress)',
+        'title': 'Browser Rendering Optimization',
         'school': 'Udacity',
         'dates': 2015,
         'url': 'https://www.udacity.com/course/browser-rendering-optimization--ud860'
