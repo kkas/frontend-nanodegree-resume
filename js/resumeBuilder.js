@@ -109,6 +109,24 @@
         'school': 'Udacity',
         'dates': 2015,
         'url': 'https://www.udacity.com/course/browser-rendering-optimization--ud860'
+      },
+      {
+        'title': 'Intro to AJAX',
+        'school': 'Udacity',
+        'dates': 2015,
+        'url': 'https://www.udacity.com/course/intro-to-ajax--ud110'
+      },
+      {
+        'title': 'JavaScript Design Patterns',
+        'school': 'Udacity',
+        'dates': 2015,
+        'url': 'https://www.udacity.com/course/javascript-design-patterns--ud989'
+      },
+      {
+        'title': 'JavaScript Testing',
+        'school': 'Udacity',
+        'dates': 2015,
+        'url': 'https://www.udacity.com/course/javascript-testing--ud549'
       }
     ]
   };
